@@ -1,4 +1,5 @@
-KODIURI ?= "git://github.com/xbmc/xbmc.git;protocol=https;branch=matrix"
+BRANCH="Matrix"
+KODIURI ?= "git://github.com/xbmc/xbmc.git;protocol=https;branch=${BRANCH}"
 #KODIREV ?= "${KODIVER}-${KODICODENAME}"
 KODIWORKDIR ?= "${WORKDIR}/git"
 
@@ -13,13 +14,15 @@ S = "${KODIWORKDIR}"
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM ?= "file:///${WORKDIR}/git/LICENSE.md;md5=7b423f1c9388eae123332e372451a4f7"
-PACKAGECONFIG_append_ugoos-am6 = "gbm systemd bluetooth pulseaudio"
-PACKAGECONFIG_remove_ugoos-am6 = "vaapi vdpau xa "
+PACKAGECONFIG_append_ugoos-am6 = "gbm systemd bluetooth pulseaudio lto "
+PACKAGECONFIG_remove_ugoos-am6 = "vaapi vdpau xa airtunes "
 
 EXTRA_OECMAKE_ugoos_am6 += "--enable-cross-compile"
 #DEPENDS_remove_ugoos-am6 = "virtual/egl"
 
 DEPENDS_ugoos-am6 += "gnutls dav1d ccache-native mdns \
+  swig-native \
+  libnss-mdns \
   virtual/egl \
   harfbuzz \
   curl-native \
@@ -29,7 +32,6 @@ DEPENDS_ugoos-am6 += "gnutls dav1d ccache-native mdns \
   kodi-tools-jsonschemabuilder-native \
   kodi-tools-texturepacker-native \
   nasm-native \
-  swig-native \
   unzip-native \
   yasm-native \
   zip-native \
