@@ -13,7 +13,7 @@ PROTOCOL="https"
 
 DEPENDS += "rsync-native"
 
-LINUX_VERSION = "5.15-rc2"
+LINUX_VERSION = "5.15-rc3"
 	
 # Linux stable tree
 SRC_URI_ugoos-am6 = "git://${URI};protocol=${PROTOCOL};branch=${BRANCH} \
