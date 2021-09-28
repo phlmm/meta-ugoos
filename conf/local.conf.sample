@@ -39,6 +39,10 @@ LICENSE_FLAGS_WHITELIST = "commercial"
 DISTRO_FEATURES_ugoos-am6 += "systemd opengl ipv4 wifi usbhost bluetooth zeroconf alsa vfat ext2"
 BB_GIT_SHALLOW ?= "1"
 BB_GIT_SHALLOW_DEPTH ?= "1"
+
+DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+VIRTUAL-RUNTIME_init_manager = "systemd"
+VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
 #
 # Where to place downloads
 #
