@@ -6,9 +6,9 @@ FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 SRCREV = "${AUTOREV}"
 BRANCH = "master"
 URI_STABLE="git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git"
-URI_MASTER="git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/"
+URI_MASTER="git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
 URI="${URI_MASTER}"
-PROTOCOL="https"
+PROTOCOL="git"
 
 
 DEPENDS += "rsync-native"
