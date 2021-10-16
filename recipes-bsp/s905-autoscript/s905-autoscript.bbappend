@@ -3,8 +3,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 DEPENDS = "u-boot-mkimage-native"
 
-FILESEXTRAPATHS_prepend_ugoos-am6 := "${THISDIR}/files:"
-SRC_URI_ugoos-am6 = "file://ugoos_autoscript.cmd"
+FILESEXTRAPATHS:prepend:ugoos-am6 := "${THISDIR}/files:"
+SRC_URI:ugoos-am6 = "file://ugoos_autoscript.cmd"
 
 
 inherit deploy

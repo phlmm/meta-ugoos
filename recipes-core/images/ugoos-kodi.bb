@@ -1,6 +1,6 @@
 DESCRIPTION = "A SD Image UGOOS AM6"
 
-IMAGE_FEATURES += "ssh-server-openssh package-management hwcodecs"
+IMAGE_FEATURES += "ssh-server-openssh hwcodecs"
 
 PREFERRED_PROVIDER_virtual/egl = "mesa"
 PREFERRED_PROVIDER_virtual/libgl = "mesa"
@@ -14,6 +14,8 @@ INIT_MANAGER = "systemd"
 
 EXTRA_IMAGE_FEATURES = "debug-tweaks"
 DISTRO_FEATURES += "systemd "
+POKY_DEFAULT_DISTRO_FEATURES:remove:ugoos-am6 = "wayland vulkan multiarch  ptest"
+MACHINE_FEATURES_BACKFILL:remove:ugoos-am6="qemu-usermode"
 
 IMAGE_INSTALL = "\
     packagegroup-core-boot \
@@ -21,19 +23,14 @@ IMAGE_INSTALL = "\
     packagegroup-core-ssh-openssh \
     openssh \
     pulseaudio \
-    kernel-image \
     kernel-modules \
-    kernel-devicetree \
     cpufrequtils \
     linux-firmware \
-    opkg \
-    opkg-collateral \
     mesa \ 
     vim \ 
     gnutls \
     ffmpeg \
     harfbuzz \
-    dash \
     bash-completion \
     kodi \
     kodi-addon-inputstream-adaptive \
@@ -46,8 +43,6 @@ IMAGE_INSTALL = "\
     g12-sound \
     coreutils \ 
     usbutils \
-    fbset \
-    fbset-modes \
     tzdata \
     transmission \
     transmission-web \

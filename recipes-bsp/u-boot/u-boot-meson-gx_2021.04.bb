@@ -5,11 +5,11 @@ DEPENDS += "bison-native bc-native dtc-native python3-native amlogic-fip"
 
 PROVIDES = "u-boot"
 
-SRC_URI_append_meson-axg = " \
+SRC_URI:append:meson-axg = " \
        file://0001-board-meson-s400-enable-eMMC-when-booting-from-it.patch \
 "
 
-SRC_URI_append = " \
+SRC_URI:append = " \
 	file://acs_tool.py \
 "
 
@@ -355,6 +355,6 @@ DEPLOY_COMMAND_meson-gxl = "deploy_gxl"
 DEPLOY_COMMAND_meson-gxbb = "deploy_gxbb"
 DEPLOY_COMMAND_hardkernel-odroidc2 = "deploy_odroidc2"
 
-do_deploy_append_meson-gx () {
+do_deploy:append:meson-gx () {
 	${DEPLOY_COMMAND}
 }

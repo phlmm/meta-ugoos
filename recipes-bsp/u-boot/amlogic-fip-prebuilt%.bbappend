@@ -3,16 +3,16 @@ PROVIDES = "amlogic-fip"
 
 LICENSE = "Proprietary"
 
-COMPATIBLE_MACHINE_ugoos-am6 = "ugoos-am6"
+COMPATIBLE_MACHINE:ugoos-am6 = "ugoos-am6"
 
-SUBDIR_ugoos-am6 = "odroid-n2"
+SUBDIR:ugoos-am6 = "odroid-n2"
 
-DEPLOY_CMD_ugoos-am6 = "do_deploy_g12b"
+DEPLOY_CMD:ugoos-am6 = "do_deploy_g12b"
 
 LIC_FILES_CHKSUM = "file://lepotato/blx_fix.sh;md5=12ad2eef4a1dcc98f9eda15224b92836"
 
-SRC_URI_ugoos-am6 = "git://github.com/LibreELEC/amlogic-boot-fip.git"
-SRCREV_ugoos-am6 = "ac20772f44b2b74c8f55331b5c91a277d0bfbc37"
+SRC_URI:ugoos-am6 = "git://github.com/LibreELEC/amlogic-boot-fip.git"
+SRCREV:ugoos-am6 = "ac20772f44b2b74c8f55331b5c91a277d0bfbc37"
 
 S = "${WORKDIR}/git"
 

@@ -1,5 +1,5 @@
 BRANCH="Matrix"
-KODIURI ?= "git://github.com/xbmc/xbmc.git;protocol=https;branch=${BRANCH}"
+KODIURI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=${BRANCH}"
 #KODIREV ?= "${KODIVER}-${KODICODENAME}"
 KODIWORKDIR ?= "${WORKDIR}/git"
 
@@ -8,19 +8,22 @@ KODIADDONS ?= ""
 
 SRC_URI = "${KODIURI}"
 SRCREV = "${AUTOREV}"
-#SRCREV = "b8bed8e8618ba585f598d22454fb543060d2e1ee"
 S = "${KODIWORKDIR}"
 
 
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM ?= "file:///${WORKDIR}/git/LICENSE.md;md5=7b423f1c9388eae123332e372451a4f7"
-PACKAGECONFIG_append_ugoos-am6 = "gbm systemd bluetooth pulseaudio lto "
-PACKAGECONFIG_remove_ugoos-am6 = "vaapi vdpau xa airtunes "
+PACKAGECONFIG:append:ugoos-am6 = " gbm systemd bluetooth pulseaudio"
+PACKAGECONFIG:remove:ugoos-am6 = " optical vaapi vdpau xa airtunes "
 
-EXTRA_OECMAKE_ugoos_am6 += "--enable-cross-compile"
-#DEPENDS_remove_ugoos-am6 = "virtual/egl"
+#EXTRA_OECMAKE:append = " --enable-cross-compile"
+#DEPENDS:remove:ugoos-am6 = "virtual/egl"
 
-DEPENDS_ugoos-am6 += "gnutls dav1d ccache-native mdns \
+DEPENDS += " \
+  gnutls \
+  dav1d \
+  ccache-native \
+  mdns \
   swig-native \
   libnss-mdns \
   virtual/egl \
@@ -54,9 +57,9 @@ DEPENDS_ugoos-am6 += "gnutls dav1d ccache-native mdns \
   libass \
   libcdio \
   libcec \
+  libdvdread \
   libdvdcss \
   libdvdnav \
-  libdvdread \
   libinput \
   libmad \
   libmicrohttpd \

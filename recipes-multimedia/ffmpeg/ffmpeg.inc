@@ -6,7 +6,7 @@ HOMEPAGE = "https://www.ffmpeg.org/"
 SECTION = "libs"
 
 LICENSE = "BSD & GPLv2+ & LGPLv2.1+ & MIT"
-LICENSE_${PN} = "GPLv2+"
+LICENSE:${PN} = "GPLv2+"
 LICENSE_libavcodec = "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
 LICENSE_libavdevice = "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
 LICENSE_libavfilter = "${@bb.utils.contains('PACKAGECONFIG', 'gpl', 'GPLv2+', 'LGPLv2.1+', d)}"
@@ -116,11 +116,11 @@ EXTRA_OECONF = " \
     --pkg-config=pkg-config \
 "
 
-EXTRA_OECONF_append_linux-gnux32 = " --disable-asm"
+EXTRA_OECONF:append:linux-gnux32 = " --disable-asm"
 # gold crashes on x86, another solution is to --disable-asm but thats more hacky
 # ld.gold: internal error in relocate_section, at ../../gold/i386.cc:3684
 
-LDFLAGS_append_x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -fuse-ld=bfd ', '', d)}"
+LDFLAGS:append:x86 = "${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', ' -fuse-ld=bfd ', '', d)}"
 
 EXTRA_OEMAKE = "V=1"
 
@@ -129,7 +129,7 @@ do_configure() {
 }
 
 # patch out build host paths for reproducibility
-do_compile_prepend_class-target() {
+do_compile:ugoos-am6_class-target() {
         sed -i -e "s,${WORKDIR},,g" ${B}/config.h
 }
 
@@ -143,15 +143,15 @@ PACKAGES =+ "libavcodec \
              libswresample \
              libswscale"
 
-FILES_libavcodec = "${libdir}/libavcodec${SOLIBS}"
-FILES_libavdevice = "${libdir}/libavdevice${SOLIBS}"
-FILES_libavfilter = "${libdir}/libavfilter${SOLIBS}"
-FILES_libavformat = "${libdir}/libavformat${SOLIBS}"
-FILES_libavresample = "${libdir}/libavresample${SOLIBS}"
-FILES_libavutil = "${libdir}/libavutil${SOLIBS}"
-FILES_libpostproc = "${libdir}/libpostproc${SOLIBS}"
-FILES_libswresample = "${libdir}/libswresample${SOLIBS}"
-FILES_libswscale = "${libdir}/libswscale${SOLIBS}"
+FILES:libavcodec = "${libdir}/libavcodec${SOLIBS}"
+FILES:libavdevice = "${libdir}/libavdevice${SOLIBS}"
+FILES:libavfilter = "${libdir}/libavfilter${SOLIBS}"
+FILES:libavformat = "${libdir}/libavformat${SOLIBS}"
+FILES:libavresample = "${libdir}/libavresample${SOLIBS}"
+FILES:libavutil = "${libdir}/libavutil${SOLIBS}"
+FILES:libpostproc = "${libdir}/libpostproc${SOLIBS}"
+FILES:libswresample = "${libdir}/libswresample${SOLIBS}"
+FILES:libswscale = "${libdir}/libswscale${SOLIBS}"
 
 # ffmpeg disables PIC on some platforms (e.g. x86-32)
 INSANE_SKIP_${MLPREFIX}libavcodec = "textrel"
