@@ -1,23 +1,20 @@
 BRANCH="Matrix"
 KODIURI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=${BRANCH}"
-#KODIREV ?= "${KODIVER}-${KODICODENAME}"
 KODIWORKDIR ?= "${WORKDIR}/git"
 
 KODIPATCHES ?= ""
 KODIADDONS ?= ""
 
+inherit pkgconfig cmake gettext python3-dir python3native kodi-common vpu
+
 SRC_URI = "${KODIURI}"
 SRCREV = "${AUTOREV}"
 S = "${KODIWORKDIR}"
-
-
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM ?= "file:///${WORKDIR}/git/LICENSE.md;md5=7b423f1c9388eae123332e372451a4f7"
-PACKAGECONFIG:append:ugoos-am6 = " gbm systemd bluetooth pulseaudio"
-PACKAGECONFIG:remove:ugoos-am6 = " optical vaapi vdpau xa airtunes "
-
-#EXTRA_OECMAKE:append = " --enable-cross-compile"
-#DEPENDS:remove:ugoos-am6 = "virtual/egl"
+PACKAGECONFIG:append = " mysql gbm systemd bluetooth pulseaudio"
+PACKAGECONFIG:remove = " optical vaapi vdpau xa airtunes"
+EXTRA_OECMAKE:append = " -DENABLE_CCACHE=0 -DVERBOSE=1"
 
 DEPENDS += " \
   gnutls \
