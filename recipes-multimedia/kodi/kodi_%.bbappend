@@ -7,7 +7,9 @@ KODIADDONS ?= ""
 
 inherit pkgconfig cmake gettext python3-dir python3native kodi-common vpu
 
-SRC_URI = "${KODIURI}"
+SRC_URI = "${KODIURI} \
+           file://0001-FindLibDvd.cmake-fix-logic-for-reusing-system-librar.patch \
+           "
 SRCREV = "${AUTOREV}"
 S = "${KODIWORKDIR}"
 LICENSE = "GPLv2"
@@ -15,6 +17,7 @@ LIC_FILES_CHKSUM ?= "file:///${WORKDIR}/git/LICENSE.md;md5=7b423f1c9388eae123332
 PACKAGECONFIG:append = " mysql gbm systemd bluetooth pulseaudio"
 PACKAGECONFIG:remove = " optical vaapi vdpau xa airtunes"
 EXTRA_OECMAKE:append = " -DENABLE_CCACHE=0 -DVERBOSE=1"
+
 
 DEPENDS += " \
   gnutls \
@@ -84,3 +87,5 @@ DEPENDS += " \
   yajl \
   zlib \
 "
+FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+
