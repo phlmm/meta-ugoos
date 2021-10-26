@@ -88,4 +88,4 @@ DEPENDS += " \
   zlib \
 "
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
-
+FILES:${PN} += "${datadir}/metainfo"

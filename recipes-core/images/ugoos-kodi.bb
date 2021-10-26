@@ -50,7 +50,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 # 4G Rootfs
-IMAGE_ROOTFS_SIZE = "4194304"
+IMAGE_ROOTFS_SIZE = "6194304"
 
 inherit core-image
 IMAGE_CLASSES += "extrausers"
