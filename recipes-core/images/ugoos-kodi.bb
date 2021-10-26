@@ -50,7 +50,7 @@ IMAGE_INSTALL = "\
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 # 4G Rootfs
-IMAGE_ROOTFS_SIZE = "6194304"
+IMAGE_ROOTFS_SIZE = "4194304"
 
 inherit core-image
 IMAGE_CLASSES += "extrausers"
@@ -59,3 +59,4 @@ EXTRA_USERS_PARAMS = " \
 	useradd -p 'ugoos' ugoos; \
 	usermod -P 'root' root; \
 "
+WIC_COMMAND:ugoos-am6 = ""
