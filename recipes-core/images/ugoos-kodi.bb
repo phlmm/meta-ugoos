@@ -1,5 +1,5 @@
 DESCRIPTION = "A SD Image UGOOS AM6"
-
+inherit setuptools3
 IMAGE_FEATURES += "ssh-server-openssh hwcodecs"
 
 PREFERRED_PROVIDER_virtual/egl = "mesa"
@@ -9,6 +9,7 @@ PREFERRED_PROVIDER_virtual/libgles1 = "mesa"
 PREFERRED_PROVIDER_virtual/libgles2 = "mesa"
 PREFERRED_PROVIDER_virtual/libgles3 = "mesa"
 PREFERRED_PROVIDER_virtual/mesa = "mesa"
+PREFERRED_VERSION_python= "3.9.0"
 
 INIT_MANAGER = "systemd"
 
@@ -47,6 +48,7 @@ IMAGE_INSTALL = "\
     transmission \
     transmission-web \
     udevil \ 
+    python3-setuptools \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 # 4G Rootfs
