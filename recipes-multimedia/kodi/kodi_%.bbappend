@@ -1,4 +1,6 @@
 BRANCH="Matrix"
+KODINAME = "${BRANCH}"
+KODIVER = "19.3"
 KODIURI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=${BRANCH}"
 KODIWORKDIR ?= "${WORKDIR}/git"
 

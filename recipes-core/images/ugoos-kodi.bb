@@ -9,7 +9,6 @@ PREFERRED_PROVIDER_virtual/libgles1 = "mesa"
 PREFERRED_PROVIDER_virtual/libgles2 = "mesa"
 PREFERRED_PROVIDER_virtual/libgles3 = "mesa"
 PREFERRED_PROVIDER_virtual/mesa = "mesa"
-PREFERRED_VERSION_python= "3.9.0"
 
 INIT_MANAGER = "systemd"
 
@@ -26,6 +25,7 @@ IMAGE_INSTALL = "\
     pulseaudio \
     kernel-modules \
     cpufrequtils \
+    libyaml \
     linux-firmware \
     mesa \ 
     vim \ 
@@ -35,8 +35,9 @@ IMAGE_INSTALL = "\
     bash-completion \
     kodi \
     kodi-addon-inputstream-adaptive \
+    kodi-addon-inputstream-ffmpegdirect \
     kodi-addon-peripheral-joystick \
-    kodi-addon-pvr-hts \
+    kodi-addon-pvr-plutotv \
     kodi-systemd-service \
     i2c-tools \
     alsa-state \
@@ -50,6 +51,7 @@ IMAGE_INSTALL = "\
     udevil \ 
     python3-setuptools \
     ${CORE_IMAGE_EXTRA_INSTALL} \
+    rsync \
     "
 # 4G Rootfs
 IMAGE_ROOTFS_SIZE = "4194304"
