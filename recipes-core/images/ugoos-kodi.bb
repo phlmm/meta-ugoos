@@ -38,6 +38,12 @@ IMAGE_INSTALL = "\
     kodi-addon-inputstream-ffmpegdirect \
     kodi-addon-peripheral-joystick \
     kodi-addon-pvr-plutotv \
+    kodi-visualization-shadertoy \
+    kodi-visualization-waveform \
+    kodi-vfs-libarchive \
+    kodi-vfs-rar \
+    kodi-vfs-sftp \
+    kodi-game-libretro \
     kodi-systemd-service \
     i2c-tools \
     alsa-state \
@@ -52,7 +58,10 @@ IMAGE_INSTALL = "\
     python3-setuptools \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     rsync \
+    glibc-utils \
+    localedef \
     "
+GLIBC_GENERATE_LOCALES:append = " bg_BG.UTF-8"
 # 4G Rootfs
 IMAGE_ROOTFS_SIZE = "4194304"
 

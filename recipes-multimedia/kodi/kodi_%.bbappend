@@ -1,13 +1,14 @@
-BRANCH="Matrix"
-KODINAME = "${BRANCH}"
-KODIVER = "19.3"
+require kodi-vers.inc
+BRANCH="master"
+KODINAME = "${KODICODENAME}"
+KODIVER = "20.0"
 KODIURI = "git://github.com/xbmc/xbmc.git;protocol=https;branch=${BRANCH}"
 KODIWORKDIR ?= "${WORKDIR}/git"
 
 KODIPATCHES ?= ""
 KODIADDONS ?= ""
 
-inherit pkgconfig cmake gettext python3-dir python3native kodi-common vpu
+inherit pkgconfig cmake gettext python3-dir python3native kodi-common
 
 SRC_URI = "${KODIURI} \
            file://0001-FindLibDvd.cmake-fix-logic-for-reusing-system-librar.patch \
@@ -52,6 +53,8 @@ DEPENDS += " \
   ffmpeg \
   flatbuffers \
   fmt \
+  netcat \
+  libunistring \
   fontconfig \
   fribidi \
   fstrcmp \
@@ -73,6 +76,8 @@ DEPENDS += " \
   libsamplerate0 \
   libsquish \
   libssh \
+  bzip2 \
+  lzo \
   libtinyxml \
   libusb1 \
   libxkbcommon \
@@ -89,5 +94,10 @@ DEPENDS += " \
   yajl \
   zlib \
 "
+RRECOMMENDS:${PN}:append:libc-glibc = " \
+  glibc-gconv-cp1252 \
+  glibc-gconv-cp1251 \
+"
+
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 FILES:${PN} += "${datadir}/metainfo"
