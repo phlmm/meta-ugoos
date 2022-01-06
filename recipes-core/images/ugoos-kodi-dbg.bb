@@ -6,3 +6,6 @@ INHIBIT_PACKAGE_STRIP = "1"
 BBDEBUG = "yes"
 INHERIT += "buildhistory"
 BUILDHISTORY_COMMIT = "1"
+
+PACKAGE_EXCLUDE = "libcec-dev kodi-platform-dev"
+PACKAGE_INSTALL:remove = "libcec-dev kodi-platform-dev"

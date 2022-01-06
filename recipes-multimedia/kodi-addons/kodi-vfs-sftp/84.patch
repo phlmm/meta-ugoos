@@ -1,0 +1,2694 @@
+From 42d13f975e1795d28cd314942a383faa617fe529 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:03:49 +0100
+Subject: [PATCH 1/3] sync translations with Matrix version
+
+---
+ vfs.sftp/addon.xml.in                         | 14 ++++++++++
+ .../resource.language.af_za/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.am_et/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ar_sa/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ast_es/strings.po       | 25 ++++++++++++++++++
+ .../resource.language.az_az/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.be_by/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.bg_bg/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.bs_ba/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ca_es/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.cs_cz/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.cy_gb/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.da_dk/strings.po        | 26 +++++++++++++++++++
+ .../resource.language.de_de/strings.po        | 13 +++++-----
+ .../resource.language.el_gr/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.en_au/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.en_nz/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.en_us/strings.po        | 25 ++++++++++++++++++
+ .../language/resource.language.eo/strings.po  | 25 ++++++++++++++++++
+ .../resource.language.es_ar/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.es_es/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.es_mx/strings.po        | 26 +++++++++++++++++++
+ .../resource.language.et_ee/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.eu_es/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.fa_af/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.fa_ir/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.fi_fi/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.fo_fo/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.fr_ca/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.fr_fr/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.gl_es/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.he_il/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.hi_in/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.hr_hr/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.hu_hu/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.hy_am/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.id_id/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.is_is/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.it_it/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ja_jp/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ko_kr/strings.po        | 26 +++++++++++++++++++
+ .../resource.language.lt_lt/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.lv_lv/strings.po        | 25 ++++++++++++++++++
+ .../language/resource.language.mi/strings.po  | 25 ++++++++++++++++++
+ .../resource.language.mk_mk/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ml_in/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.mn_mn/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ms_my/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.mt_mt/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.my_mm/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.nb_no/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.nl_nl/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.oc_fr/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.os_os/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.pl_pl/strings.po        | 26 +++++++++++++++++++
+ .../resource.language.pt_br/strings.po        | 26 +++++++++++++++++++
+ .../resource.language.pt_pt/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ro_md/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ro_ro/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.ru_ru/strings.po        | 26 +++++++++++++++++++
+ .../language/resource.language.scn/strings.po | 25 ++++++++++++++++++
+ .../resource.language.si_lk/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.sk_sk/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.sl_si/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.sq_al/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.sr_rs/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.sr_rs@latin/strings.po  | 25 ++++++++++++++++++
+ .../resource.language.sv_se/strings.po        | 25 ++++++++++++++++++
+ .../language/resource.language.szl/strings.po | 25 ++++++++++++++++++
+ .../resource.language.ta_in/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.te_in/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.tg_tj/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.th_th/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.tr_tr/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.uk_ua/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.uz_uz/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.vi_vn/strings.po        | 25 ++++++++++++++++++
+ .../resource.language.zh_cn/strings.po        | 26 +++++++++++++++++++
+ .../resource.language.zh_tw/strings.po        | 25 ++++++++++++++++++
+ 79 files changed, 1953 insertions(+), 6 deletions(-)
+ create mode 100644 vfs.sftp/resources/language/resource.language.af_za/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.am_et/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ar_sa/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ast_es/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.az_az/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.be_by/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.bg_bg/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.bs_ba/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ca_es/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.cs_cz/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.cy_gb/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.da_dk/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.el_gr/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.en_au/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.en_nz/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.en_us/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.eo/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.es_ar/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.es_es/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.es_mx/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.et_ee/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.eu_es/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.fa_af/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.fa_ir/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.fi_fi/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.fo_fo/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.fr_ca/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.fr_fr/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.gl_es/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.he_il/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.hi_in/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.hr_hr/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.hu_hu/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.hy_am/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.id_id/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.is_is/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.it_it/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ja_jp/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ko_kr/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.lt_lt/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.lv_lv/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.mi/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.mk_mk/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ml_in/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.mn_mn/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ms_my/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.mt_mt/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.my_mm/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.nb_no/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.nl_nl/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.oc_fr/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.os_os/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.pl_pl/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.pt_br/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.pt_pt/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ro_md/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ro_ro/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ru_ru/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.scn/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.si_lk/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.sk_sk/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.sl_si/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.sq_al/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.sr_rs/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.sr_rs@latin/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.sv_se/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.szl/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.ta_in/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.te_in/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.tg_tj/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.th_th/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.tr_tr/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.uk_ua/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.uz_uz/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.vi_vn/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.zh_cn/strings.po
+ create mode 100644 vfs.sftp/resources/language/resource.language.zh_tw/strings.po
+
+diff --git a/vfs.sftp/addon.xml.in b/vfs.sftp/addon.xml.in
+index b4b6aa8..a9a1e3e 100644
+--- a/vfs.sftp/addon.xml.in
++++ b/vfs.sftp/addon.xml.in
+@@ -28,9 +28,23 @@
+     <assets>
+       <icon>icon.png</icon>
+     </assets>
++    <summary lang="da_DK">Understøttelse af SSH filoverførselses-protokol (SSH File Transfer Protocol)</summary>
+     <summary lang="de_DE">Unterstützung für SSH File Transfer Protocol</summary>
+     <summary lang="en_GB">SSH File Transfer Protocol support</summary>
++    <summary lang="es_MX">Soporte para FTP mediante SSH</summary>
++    <summary lang="ko_KR">SSH 파일 전송 프로토콜 지원</summary>
++    <summary lang="pl_PL">Obsługa SSH File Transfer Protocol (SFTP)</summary>
++    <summary lang="pt_BR">Suporte para protocolo de transferência de arquivos SSH</summary>
++    <summary lang="ru_RU">Поддержка протокола передачи файлов SSH</summary>
++    <summary lang="zh_CN">SSH 文件传输协议支持</summary>
++    <description lang="da_DK">SSH File Transfer Protocol (SSH filoverførsels-protokol) (også Secure File Transfer Protocol eller SFTP) er en netværksprotokol, der giver filadgang, filoverførsel og filhåndtering over enhver pålidelig datastream.[CR][CR]Dette add-on tillader filadgang til data indeni.</description>
+     <description lang="de_DE">Das SSH File Transfer Protocol (auch Secure File Transfer Protocol oder SFTP) ist ein Netzwerkprotokoll, das Dateizugriff, Dateiübertragung und Dateiverwaltung über jeden zuverlässigen Datenstrom ermöglicht.[CR][CR]Dieses Addon ermöglicht den Dateizugriff auf darin enthaltene Daten.</description>
+     <description lang="en_GB">The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it.</description>
++    <description lang="es_MX">El Protocolo de Transferencia de Archivos mediante SSH (también llamado Protocolo de Transferencia de Archivos Seguro, SFTP por sus siglas en inglés) es un protocolo que provee acceso, transferencia y administración de archivos mediante cualquier conexión de red estable.[CR][CR]Este complemento habilita el acceso a datos mediante este protocolo.</description>
++    <description lang="ko_KR">SSH 파일 전송 프로토콜(SFTP)은 신뢰할 수 있는 데이터 스트림을 통해 파일 액세스, 파일 전송 및 파일 관리를 제공하는 네트워크 프로토콜입니다.[CR][CR]이 애드온을 사용하면 데이터에 대한 파일 액세스가 허용됩니다.</description>
++    <description lang="pl_PL">SSH File Transfer Protocol (również Secure File Transfer Protocol lub SFTP) to protokół sieciowy, który zapewnia dostęp do plików, ich transfer i zarządzanie nimi za pośrednictwem dowolnego niezawodnego strumienia danych.[CR][CR]Dodatek ten umożliwia dostęp do plików z danymi w nich zawartymi.</description>
++    <description lang="pt_BR">O SSH File Transfer Protocol (também Secure File Transfer Protocol, ou SFTP) é um protocolo de rede que fornece acesso, transferência e gerenciamento de arquivos, através de qualquer conexão fiável.[CR][CR]Este add-on permite acesso aos arquivos de dados, por meio desse protocolo.</description>
++    <description lang="ru_RU">SSH File Transfer Protocol (также Secure File Transfer Protocol, или SFTP) - это сетевой протокол, который обеспечивает доступ к файлам, передачу файлов и управление файлами через любой надёжный поток данных.</description>
++    <description lang="zh_CN">SSH 文件传输协议（也称为安全文件传输协议，或 SFTP）是一种网络协议，通过任何可靠的数据流提供文件访问、文件传输和文件管理。[CR][CR]此插件允许文件访问其中的数据。</description>
+   </extension>
+ </addon>
+diff --git a/vfs.sftp/resources/language/resource.language.af_za/strings.po b/vfs.sftp/resources/language/resource.language.af_za/strings.po
+new file mode 100644
+index 0000000..98da93c
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.af_za/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: af_za\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.am_et/strings.po b/vfs.sftp/resources/language/resource.language.am_et/strings.po
+new file mode 100644
+index 0000000..2bdbd47
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.am_et/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: am_et\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ar_sa/strings.po b/vfs.sftp/resources/language/resource.language.ar_sa/strings.po
+new file mode 100644
+index 0000000..b4f302e
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ar_sa/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ar_sa\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ast_es/strings.po b/vfs.sftp/resources/language/resource.language.ast_es/strings.po
+new file mode 100644
+index 0000000..4c75949
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ast_es/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ast_es\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.az_az/strings.po b/vfs.sftp/resources/language/resource.language.az_az/strings.po
+new file mode 100644
+index 0000000..7eb400b
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.az_az/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: az_az\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.be_by/strings.po b/vfs.sftp/resources/language/resource.language.be_by/strings.po
+new file mode 100644
+index 0000000..354acb4
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.be_by/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: be_by\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.bg_bg/strings.po b/vfs.sftp/resources/language/resource.language.bg_bg/strings.po
+new file mode 100644
+index 0000000..04012e3
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.bg_bg/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: bg_bg\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.bs_ba/strings.po b/vfs.sftp/resources/language/resource.language.bs_ba/strings.po
+new file mode 100644
+index 0000000..bcaa8d3
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.bs_ba/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: bs_ba\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ca_es/strings.po b/vfs.sftp/resources/language/resource.language.ca_es/strings.po
+new file mode 100644
+index 0000000..cc9e858
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ca_es/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ca_es\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.cs_cz/strings.po b/vfs.sftp/resources/language/resource.language.cs_cz/strings.po
+new file mode 100644
+index 0000000..32e56e9
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.cs_cz/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: cs_cz\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.cy_gb/strings.po b/vfs.sftp/resources/language/resource.language.cy_gb/strings.po
+new file mode 100644
+index 0000000..5f9035a
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.cy_gb/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: cy_gb\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=6; plural=(n==0) ? 0 : (n==1) ? 1 : (n==2) ? 2 : (n==3) ? 3 :(n==6) ? 4 : 5;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.da_dk/strings.po b/vfs.sftp/resources/language/resource.language.da_dk/strings.po
+new file mode 100644
+index 0000000..ffa633c
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.da_dk/strings.po
+@@ -0,0 +1,26 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: 2021-10-25 10:02+0000\n"
++"Last-Translator: Christian Gade <gade@kodi.tv>\n"
++"Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/da_dk/>\n"
++"Language: da_dk\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++"X-Generator: Weblate 4.8\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr "Understøttelse af SSH filoverførselses-protokol (SSH File Transfer Protocol)"
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr "SSH File Transfer Protocol (SSH filoverførsels-protokol) (også Secure File Transfer Protocol eller SFTP) er en netværksprotokol, der giver filadgang, filoverførsel og filhåndtering over enhver pålidelig datastream.[CR][CR]Dette add-on tillader filadgang til data indeni."
+diff --git a/vfs.sftp/resources/language/resource.language.de_de/strings.po b/vfs.sftp/resources/language/resource.language.de_de/strings.po
+index 7492e31..9a42054 100644
+--- a/vfs.sftp/resources/language/resource.language.de_de/strings.po
++++ b/vfs.sftp/resources/language/resource.language.de_de/strings.po
+@@ -5,16 +5,17 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: KODI Main\n"
+-"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+ "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"Last-Translator: Kodi Translation Team\n"
+-"Language-Team: (https://kodi.weblate.cloud/languages/de_de/)\n"
++"PO-Revision-Date: 2021-10-03 11:07+0000\n"
++"Last-Translator: Kai Sommerfeld <kai.sommerfeld@gmx.com>\n"
++"Language-Team: German <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/de_de/>\n"
++"Language: de_de\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+-"Language: de_DE\n"
+-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++"X-Generator: Weblate 4.8\n"
+ 
+ msgctxt "Addon Summary"
+ msgid "SSH File Transfer Protocol support"
+diff --git a/vfs.sftp/resources/language/resource.language.el_gr/strings.po b/vfs.sftp/resources/language/resource.language.el_gr/strings.po
+new file mode 100644
+index 0000000..3557ee6
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.el_gr/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: el_gr\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.en_au/strings.po b/vfs.sftp/resources/language/resource.language.en_au/strings.po
+new file mode 100644
+index 0000000..155a368
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.en_au/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: en_au\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.en_nz/strings.po b/vfs.sftp/resources/language/resource.language.en_nz/strings.po
+new file mode 100644
+index 0000000..fd31cfb
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.en_nz/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: en_nz\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.en_us/strings.po b/vfs.sftp/resources/language/resource.language.en_us/strings.po
+new file mode 100644
+index 0000000..ecaf9ce
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.en_us/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: en_us\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.eo/strings.po b/vfs.sftp/resources/language/resource.language.eo/strings.po
+new file mode 100644
+index 0000000..5123902
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.eo/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: eo\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.es_ar/strings.po b/vfs.sftp/resources/language/resource.language.es_ar/strings.po
+new file mode 100644
+index 0000000..86cef0f
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.es_ar/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: es_ar\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.es_es/strings.po b/vfs.sftp/resources/language/resource.language.es_es/strings.po
+new file mode 100644
+index 0000000..fc667dd
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.es_es/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: es_es\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.es_mx/strings.po b/vfs.sftp/resources/language/resource.language.es_mx/strings.po
+new file mode 100644
+index 0000000..5df9117
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.es_mx/strings.po
+@@ -0,0 +1,26 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: 2021-10-03 11:07+0000\n"
++"Last-Translator: Edson Armando <edsonarmando78@outlook.com>\n"
++"Language-Team: Spanish (Mexico) <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/es_mx/>\n"
++"Language: es_mx\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++"X-Generator: Weblate 4.8\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr "Soporte para FTP mediante SSH"
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr "El Protocolo de Transferencia de Archivos mediante SSH (también llamado Protocolo de Transferencia de Archivos Seguro, SFTP por sus siglas en inglés) es un protocolo que provee acceso, transferencia y administración de archivos mediante cualquier conexión de red estable.[CR][CR]Este complemento habilita el acceso a datos mediante este protocolo."
+diff --git a/vfs.sftp/resources/language/resource.language.et_ee/strings.po b/vfs.sftp/resources/language/resource.language.et_ee/strings.po
+new file mode 100644
+index 0000000..50e5e13
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.et_ee/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: et_ee\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.eu_es/strings.po b/vfs.sftp/resources/language/resource.language.eu_es/strings.po
+new file mode 100644
+index 0000000..869e893
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.eu_es/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: eu_es\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.fa_af/strings.po b/vfs.sftp/resources/language/resource.language.fa_af/strings.po
+new file mode 100644
+index 0000000..0fd0938
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.fa_af/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: fa_af\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.fa_ir/strings.po b/vfs.sftp/resources/language/resource.language.fa_ir/strings.po
+new file mode 100644
+index 0000000..ff034df
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.fa_ir/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: fa_ir\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.fi_fi/strings.po b/vfs.sftp/resources/language/resource.language.fi_fi/strings.po
+new file mode 100644
+index 0000000..e9783ce
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.fi_fi/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: fi_fi\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.fo_fo/strings.po b/vfs.sftp/resources/language/resource.language.fo_fo/strings.po
+new file mode 100644
+index 0000000..f922b15
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.fo_fo/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: fo_fo\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.fr_ca/strings.po b/vfs.sftp/resources/language/resource.language.fr_ca/strings.po
+new file mode 100644
+index 0000000..77288ac
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.fr_ca/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: fr_ca\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.fr_fr/strings.po b/vfs.sftp/resources/language/resource.language.fr_fr/strings.po
+new file mode 100644
+index 0000000..9e196a5
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.fr_fr/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: fr_fr\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.gl_es/strings.po b/vfs.sftp/resources/language/resource.language.gl_es/strings.po
+new file mode 100644
+index 0000000..c5d209a
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.gl_es/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: gl_es\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.he_il/strings.po b/vfs.sftp/resources/language/resource.language.he_il/strings.po
+new file mode 100644
+index 0000000..a4681fe
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.he_il/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: he_il\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && n % 10 == 0) ? 2 : 3));\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.hi_in/strings.po b/vfs.sftp/resources/language/resource.language.hi_in/strings.po
+new file mode 100644
+index 0000000..df28732
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.hi_in/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: hi_in\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.hr_hr/strings.po b/vfs.sftp/resources/language/resource.language.hr_hr/strings.po
+new file mode 100644
+index 0000000..a699fe7
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.hr_hr/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: hr_hr\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.hu_hu/strings.po b/vfs.sftp/resources/language/resource.language.hu_hu/strings.po
+new file mode 100644
+index 0000000..b4c029e
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.hu_hu/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: hu_hu\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.hy_am/strings.po b/vfs.sftp/resources/language/resource.language.hy_am/strings.po
+new file mode 100644
+index 0000000..a297d8f
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.hy_am/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: hy_am\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.id_id/strings.po b/vfs.sftp/resources/language/resource.language.id_id/strings.po
+new file mode 100644
+index 0000000..091bd44
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.id_id/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: id_id\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.is_is/strings.po b/vfs.sftp/resources/language/resource.language.is_is/strings.po
+new file mode 100644
+index 0000000..217989e
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.is_is/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: is_is\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n % 10 != 1 || n % 100 == 11;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.it_it/strings.po b/vfs.sftp/resources/language/resource.language.it_it/strings.po
+new file mode 100644
+index 0000000..8542edb
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.it_it/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: it_it\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ja_jp/strings.po b/vfs.sftp/resources/language/resource.language.ja_jp/strings.po
+new file mode 100644
+index 0000000..d3c164e
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ja_jp/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ja_jp\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ko_kr/strings.po b/vfs.sftp/resources/language/resource.language.ko_kr/strings.po
+new file mode 100644
+index 0000000..e70c4b1
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ko_kr/strings.po
+@@ -0,0 +1,26 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: 2021-10-03 11:07+0000\n"
++"Last-Translator: Minho Park <parkmino@gmail.com>\n"
++"Language-Team: Korean <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/ko_kr/>\n"
++"Language: ko_kr\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++"X-Generator: Weblate 4.8\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr "SSH 파일 전송 프로토콜 지원"
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr "SSH 파일 전송 프로토콜(SFTP)은 신뢰할 수 있는 데이터 스트림을 통해 파일 액세스, 파일 전송 및 파일 관리를 제공하는 네트워크 프로토콜입니다.[CR][CR]이 애드온을 사용하면 데이터에 대한 파일 액세스가 허용됩니다."
+diff --git a/vfs.sftp/resources/language/resource.language.lt_lt/strings.po b/vfs.sftp/resources/language/resource.language.lt_lt/strings.po
+new file mode 100644
+index 0000000..4247d1b
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.lt_lt/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: lt_lt\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > 19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? 1 : 2);\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.lv_lv/strings.po b/vfs.sftp/resources/language/resource.language.lv_lv/strings.po
+new file mode 100644
+index 0000000..f3a362a
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.lv_lv/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: lv_lv\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=(n % 10 == 0 || n % 100 >= 11 && n % 100 <= 19) ? 0 : ((n % 10 == 1 && n % 100 != 11) ? 1 : 2);\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.mi/strings.po b/vfs.sftp/resources/language/resource.language.mi/strings.po
+new file mode 100644
+index 0000000..3d5b040
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.mi/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: mi\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.mk_mk/strings.po b/vfs.sftp/resources/language/resource.language.mk_mk/strings.po
+new file mode 100644
+index 0000000..d1163a7
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.mk_mk/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: mk_mk\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n==1 || n%10==1 ? 0 : 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ml_in/strings.po b/vfs.sftp/resources/language/resource.language.ml_in/strings.po
+new file mode 100644
+index 0000000..831c7dd
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ml_in/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ml_in\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.mn_mn/strings.po b/vfs.sftp/resources/language/resource.language.mn_mn/strings.po
+new file mode 100644
+index 0000000..f44d14d
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.mn_mn/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: mn_mn\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ms_my/strings.po b/vfs.sftp/resources/language/resource.language.ms_my/strings.po
+new file mode 100644
+index 0000000..17c17e8
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ms_my/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ms_my\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.mt_mt/strings.po b/vfs.sftp/resources/language/resource.language.mt_mt/strings.po
+new file mode 100644
+index 0000000..eeaa142
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.mt_mt/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: mt_mt\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=4; plural=n==1 ? 0 : n==0 || ( n%100>1 && n%100<11) ? 1 : (n%100>10 && n%100<20 ) ? 2 : 3;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.my_mm/strings.po b/vfs.sftp/resources/language/resource.language.my_mm/strings.po
+new file mode 100644
+index 0000000..ce4d158
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.my_mm/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: my_mm\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.nb_no/strings.po b/vfs.sftp/resources/language/resource.language.nb_no/strings.po
+new file mode 100644
+index 0000000..b9cbe30
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.nb_no/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: nb_no\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.nl_nl/strings.po b/vfs.sftp/resources/language/resource.language.nl_nl/strings.po
+new file mode 100644
+index 0000000..20a086c
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.nl_nl/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: nl_nl\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.oc_fr/strings.po b/vfs.sftp/resources/language/resource.language.oc_fr/strings.po
+new file mode 100644
+index 0000000..018e1bb
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.oc_fr/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: oc_fr\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.os_os/strings.po b/vfs.sftp/resources/language/resource.language.os_os/strings.po
+new file mode 100644
+index 0000000..bf1eb91
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.os_os/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: os_os\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.pl_pl/strings.po b/vfs.sftp/resources/language/resource.language.pl_pl/strings.po
+new file mode 100644
+index 0000000..28e0e3a
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.pl_pl/strings.po
+@@ -0,0 +1,26 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: 2021-10-03 11:07+0000\n"
++"Last-Translator: Marek Adamski <fevbew@wp.pl>\n"
++"Language-Team: Polish <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/pl_pl/>\n"
++"Language: pl_pl\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++"X-Generator: Weblate 4.8\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr "Obsługa SSH File Transfer Protocol (SFTP)"
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr "SSH File Transfer Protocol (również Secure File Transfer Protocol lub SFTP) to protokół sieciowy, który zapewnia dostęp do plików, ich transfer i zarządzanie nimi za pośrednictwem dowolnego niezawodnego strumienia danych.[CR][CR]Dodatek ten umożliwia dostęp do plików z danymi w nich zawartymi."
+diff --git a/vfs.sftp/resources/language/resource.language.pt_br/strings.po b/vfs.sftp/resources/language/resource.language.pt_br/strings.po
+new file mode 100644
+index 0000000..fee5143
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.pt_br/strings.po
+@@ -0,0 +1,26 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: 2021-12-07 00:13+0000\n"
++"Last-Translator: Fabio <fabioihle+kodi@alunos.utfpr.edu.br>\n"
++"Language-Team: Portuguese (Brazil) <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/pt_br/>\n"
++"Language: pt_br\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++"X-Generator: Weblate 4.9.1\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr "Suporte para protocolo de transferência de arquivos SSH"
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr "O SSH File Transfer Protocol (também Secure File Transfer Protocol, ou SFTP) é um protocolo de rede que fornece acesso, transferência e gerenciamento de arquivos, através de qualquer conexão fiável.[CR][CR]Este add-on permite acesso aos arquivos de dados, por meio desse protocolo."
+diff --git a/vfs.sftp/resources/language/resource.language.pt_pt/strings.po b/vfs.sftp/resources/language/resource.language.pt_pt/strings.po
+new file mode 100644
+index 0000000..f8e953c
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.pt_pt/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: pt_pt\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ro_md/strings.po b/vfs.sftp/resources/language/resource.language.ro_md/strings.po
+new file mode 100644
+index 0000000..beeda6c
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ro_md/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ro_md\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n == 0 || n % 100 >= 2 && n % 100 <= 19) ? 1 : 2);\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ro_ro/strings.po b/vfs.sftp/resources/language/resource.language.ro_ro/strings.po
+new file mode 100644
+index 0000000..5a0f57c
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ro_ro/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ro_ro\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ru_ru/strings.po b/vfs.sftp/resources/language/resource.language.ru_ru/strings.po
+new file mode 100644
+index 0000000..88f1cc7
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ru_ru/strings.po
+@@ -0,0 +1,26 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: 2021-10-03 11:07+0000\n"
++"Last-Translator: vdkbsd <valexgus@gmail.com>\n"
++"Language-Team: Russian <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/ru_ru/>\n"
++"Language: ru_ru\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++"X-Generator: Weblate 4.8\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr "Поддержка протокола передачи файлов SSH"
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr "SSH File Transfer Protocol (также Secure File Transfer Protocol, или SFTP) - это сетевой протокол, который обеспечивает доступ к файлам, передачу файлов и управление файлами через любой надёжный поток данных."
+diff --git a/vfs.sftp/resources/language/resource.language.scn/strings.po b/vfs.sftp/resources/language/resource.language.scn/strings.po
+new file mode 100644
+index 0000000..38b2bb3
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.scn/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: scn\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.si_lk/strings.po b/vfs.sftp/resources/language/resource.language.si_lk/strings.po
+new file mode 100644
+index 0000000..243052b
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.si_lk/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: si_lk\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n > 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.sk_sk/strings.po b/vfs.sftp/resources/language/resource.language.sk_sk/strings.po
+new file mode 100644
+index 0000000..8189ec4
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.sk_sk/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: sk_sk\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.sl_si/strings.po b/vfs.sftp/resources/language/resource.language.sl_si/strings.po
+new file mode 100644
+index 0000000..673a376
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.sl_si/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: sl_si\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.sq_al/strings.po b/vfs.sftp/resources/language/resource.language.sq_al/strings.po
+new file mode 100644
+index 0000000..4d68083
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.sq_al/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: sq_al\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.sr_rs/strings.po b/vfs.sftp/resources/language/resource.language.sr_rs/strings.po
+new file mode 100644
+index 0000000..f0664de
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.sr_rs/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: sr_rs\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.sr_rs@latin/strings.po b/vfs.sftp/resources/language/resource.language.sr_rs@latin/strings.po
+new file mode 100644
+index 0000000..9730a1a
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.sr_rs@latin/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: sr_Latn\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.sv_se/strings.po b/vfs.sftp/resources/language/resource.language.sv_se/strings.po
+new file mode 100644
+index 0000000..435c6fa
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.sv_se/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: sv_se\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.szl/strings.po b/vfs.sftp/resources/language/resource.language.szl/strings.po
+new file mode 100644
+index 0000000..fb18d4a
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.szl/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: szl\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.ta_in/strings.po b/vfs.sftp/resources/language/resource.language.ta_in/strings.po
+new file mode 100644
+index 0000000..2ee936e
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.ta_in/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: ta_in\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.te_in/strings.po b/vfs.sftp/resources/language/resource.language.te_in/strings.po
+new file mode 100644
+index 0000000..ddebd39
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.te_in/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: te_in\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.tg_tj/strings.po b/vfs.sftp/resources/language/resource.language.tg_tj/strings.po
+new file mode 100644
+index 0000000..b3a74ba
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.tg_tj/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: tg_tj\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.th_th/strings.po b/vfs.sftp/resources/language/resource.language.th_th/strings.po
+new file mode 100644
+index 0000000..f3298db
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.th_th/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: th_th\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.tr_tr/strings.po b/vfs.sftp/resources/language/resource.language.tr_tr/strings.po
+new file mode 100644
+index 0000000..89008d2
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.tr_tr/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: tr_tr\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.uk_ua/strings.po b/vfs.sftp/resources/language/resource.language.uk_ua/strings.po
+new file mode 100644
+index 0000000..0e575ae
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.uk_ua/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: uk_ua\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.uz_uz/strings.po b/vfs.sftp/resources/language/resource.language.uz_uz/strings.po
+new file mode 100644
+index 0000000..d110423
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.uz_uz/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: uz_uz\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.vi_vn/strings.po b/vfs.sftp/resources/language/resource.language.vi_vn/strings.po
+new file mode 100644
+index 0000000..fb411bf
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.vi_vn/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: vi_vn\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=1; plural=0;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+diff --git a/vfs.sftp/resources/language/resource.language.zh_cn/strings.po b/vfs.sftp/resources/language/resource.language.zh_cn/strings.po
+new file mode 100644
+index 0000000..8e5ff75
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.zh_cn/strings.po
+@@ -0,0 +1,26 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: 2021-10-17 09:30+0000\n"
++"Last-Translator: taxigps <taxigps@sina.com>\n"
++"Language-Team: Chinese (China) <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-sftp/zh_cn/>\n"
++"Language: zh_cn\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++"X-Generator: Weblate 4.8\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr "SSH 文件传输协议支持"
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr "SSH 文件传输协议（也称为安全文件传输协议，或 SFTP）是一种网络协议，通过任何可靠的数据流提供文件访问、文件传输和文件管理。[CR][CR]此插件允许文件访问其中的数据。"
+diff --git a/vfs.sftp/resources/language/resource.language.zh_tw/strings.po b/vfs.sftp/resources/language/resource.language.zh_tw/strings.po
+new file mode 100644
+index 0000000..ef4bf0b
+--- /dev/null
++++ b/vfs.sftp/resources/language/resource.language.zh_tw/strings.po
+@@ -0,0 +1,25 @@
++# Kodi Media Center language file
++# Addon Name: SFTP support
++# Addon id: vfs.sftp
++# Addon Provider: Team Kodi
++msgid ""
++msgstr ""
++"Project-Id-Version: KODI Main\n"
++"Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
++"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
++"Last-Translator: Automatically generated\n"
++"Language-Team: none\n"
++"Language: zh_tw\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=n != 1;\n"
++
++msgctxt "Addon Summary"
++msgid "SSH File Transfer Protocol support"
++msgstr ""
++
++msgctxt "Addon Description"
++msgid "The SSH File Transfer Protocol (also Secure File Transfer Protocol, or SFTP) is a network protocol that provides file access, file transfer, and file management over any reliable data stream.[CR][CR]This addon allows file access to data in it."
++msgstr ""
+
+From 48840adf656ffb6031e6a786242f7ea940428276 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:30:43 +0100
+Subject: [PATCH 2/3] API related update
+
+---
+ src/SFTPFile.cpp | 15 ++++++---------
+ 1 file changed, 6 insertions(+), 9 deletions(-)
+
+diff --git a/src/SFTPFile.cpp b/src/SFTPFile.cpp
+index f885b9c..146d30a 100644
+--- a/src/SFTPFile.cpp
++++ b/src/SFTPFile.cpp
+@@ -12,7 +12,7 @@
+ #include <map>
+ #include <sstream>
+ 
+-class ATTRIBUTE_HIDDEN CSFTPFile : public kodi::addon::CInstanceVFS
++class ATTR_DLL_LOCAL CSFTPFile : public kodi::addon::CInstanceVFS
+ {
+   struct SFTPContext
+   {
+@@ -22,7 +22,7 @@ class ATTRIBUTE_HIDDEN CSFTPFile : public kodi::addon::CInstanceVFS
+   };
+ 
+ public:
+-  CSFTPFile(KODI_HANDLE instance, const std::string& version) : CInstanceVFS(instance, version) {}
++  CSFTPFile(const kodi::addon::IInstanceInfo& instance) : CInstanceVFS(instance) {}
+ 
+   kodi::addon::VFSFileHandle Open(const kodi::addon::VFSUrl& url) override
+   {
+@@ -175,20 +175,17 @@ class ATTRIBUTE_HIDDEN CSFTPFile : public kodi::addon::CInstanceVFS
+   }
+ };
+ 
+-class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
++class ATTR_DLL_LOCAL CMyAddon : public kodi::addon::CAddonBase
+ {
+ public:
+   CMyAddon() { ssh_init(); }
+ 
+   ~CMyAddon() override { ssh_finalize(); }
+ 
+-  ADDON_STATUS CreateInstance(int instanceType,
+-                              const std::string& instanceID,
+-                              KODI_HANDLE instance,
+-                              const std::string& version,
+-                              KODI_HANDLE& addonInstance) override
++  ADDON_STATUS CreateInstance(const kodi::addon::IInstanceInfo& instance,
++                              KODI_ADDON_INSTANCE_HDL& hdl) override
+   {
+-    addonInstance = new CSFTPFile(instance, version);
++    hdl = new CSFTPFile(instance);
+     return ADDON_STATUS_OK;
+   }
+ };
+
+From abef02de2123871bd0801c766eda694af0829ca2 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:31:03 +0100
+Subject: [PATCH 3/3] increase version to 20.1.0
+
+---
+ vfs.sftp/addon.xml.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vfs.sftp/addon.xml.in b/vfs.sftp/addon.xml.in
+index a9a1e3e..8839676 100644
+--- a/vfs.sftp/addon.xml.in
++++ b/vfs.sftp/addon.xml.in
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <addon
+   id="vfs.sftp"
+-  version="20.0.0"
++  version="20.1.0"
+   name="SFTP support"
+   provider-name="spiff">
+   <requires>@ADDON_DEPENDS@</requires>

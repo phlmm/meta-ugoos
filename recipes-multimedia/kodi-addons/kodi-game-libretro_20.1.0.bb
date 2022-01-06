@@ -8,8 +8,6 @@ inherit kodi-addon
 require recipes-multimedia/kodi/kodi-vers.inc
 DEPENDS_${PN} += "tinyxml"
 
-PV = "20.0.0"
-
 SRC_URI = "git://github.com/kodi-game/game.libretro.git;protocol=https;nobranch=1"
 SRCREV = "${PV}-${KODICODENAME}"
 S = "${WORKDIR}/git"

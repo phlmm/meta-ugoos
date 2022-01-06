@@ -1,7 +1,7 @@
 require recipes-graphics/mesa/mesa.inc
 
 SRC_URI = "https://mesa.freedesktop.org/archive/mesa-${PV}.tar.xz "
-SRC_URI[sha256sum] = "e2e7bafb8307e7abc3bf982f39382fae3619c84b45504920a21504be52f126bd"
+SRC_URI[sha256sum] = "ad7f4613ea7c5d08d9fcb5025270199e6ceb9aa99fd72ee572b70342240a8121"
 
 PACKAGECONFIG[elf-tls]= ""
 DRIDRIVERS:append:ugoos-am6 = "auto"

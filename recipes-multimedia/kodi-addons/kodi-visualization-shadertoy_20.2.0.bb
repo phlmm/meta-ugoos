@@ -8,8 +8,6 @@ inherit kodi-addon
 require recipes-multimedia/kodi/kodi-vers.inc
 DEPENDS += "jsoncpp mesa glm"
 
-PV = "20.0.0"
-
 SRC_URI = "git://github.com/xbmc/visualization.shadertoy.git;protocol=https;nobranch=1"
 SRCREV = "${PV}-${KODICODENAME}"
 S = "${WORKDIR}/git"

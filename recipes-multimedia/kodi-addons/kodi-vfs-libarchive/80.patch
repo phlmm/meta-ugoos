@@ -1,0 +1,382 @@
+From b825ac013fd2391898a90683c160e6227d009511 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:04:00 +0100
+Subject: [PATCH 1/3] sync translations with Matrix version
+
+---
+ vfs.libarchive/addon.xml.in                   |  2 +
+ .../resource.language.es_mx/strings.po        | 12 ++---
+ .../resource.language.pt_br/strings.po        | 49 ++++++++++---------
+ 3 files changed, 33 insertions(+), 30 deletions(-)
+
+diff --git a/vfs.libarchive/addon.xml.in b/vfs.libarchive/addon.xml.in
+index 2b59b20..b7b444b 100644
+--- a/vfs.libarchive/addon.xml.in
++++ b/vfs.libarchive/addon.xml.in
+@@ -30,6 +30,7 @@
+     <summary lang="es_MX">Complemento de compresión y archivado en múltiples formatos</summary>
+     <summary lang="ko_KR">다중 형식 아카이브 및 압축 애드온</summary>
+     <summary lang="pl_PL">Dodatek wieloformatowych archiwów i kompresji</summary>
++    <summary lang="pt_BR">Add-on para arquivos multiformato e compressão</summary>
+     <summary lang="ru_RU">Дополнение для архивирования и сжатия в нескольких форматах</summary>
+     <summary lang="zh_CN">多格式文档和压缩插件</summary>
+     <description lang="ca_ES">Aquest complement utilitza la llibreria libarchive per llegir diversos formats d'arxiu i compressió.[CR][CR]Els formats compatibles són:[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz, tgz, tbz2, xz, zip</description>
+@@ -39,6 +40,7 @@
+     <description lang="es_MX">Este complemento utiliza libarchive para leer una variedad de formatos de archivado y compresión. [CR][CR]Los formatos soportados son:[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz, tgz, tbz2, xz, zip</description>
+     <description lang="ko_KR">이 추가 기능은 libarchive 라이브러리를 사용하여 다양한 아카이브 및 압축 형식을 읽습니다.[CR][CR]지원되는 형식은 다음과 같습니다.[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz , tgz, tbz2, xz, zip</description>
+     <description lang="pl_PL">Dodatek ten używa biblioteki libarchive do odczytu różnych formatów archiwów i kompresji.[CR][CR]Obsługiwane formaty to:[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz, tgz, tbz2, xz, zip</description>
++    <description lang="pt_BR">Este add-on usa a biblioteca libarchive para ler uma variedade de arquivos e formatos de compressão.[CR][CR]Os formatos suportados são:[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz, tgz, tbz2, xz, zip</description>
+     <description lang="ru_RU">Это дополнение использует библиотеку libarchive для чтения различных форматов архивов и сжатия.[CR][CR]Поддерживаемые форматы:[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz, tgz, tbz2, xz, zip</description>
+     <description lang="zh_CN">此插件使用 libarchive 库读取各种文档和压缩格式。[CR][CR]支持的格式有：[CR]7z、bz2、gz、tar、tar.bz2、tar.gz、tar.xz、tgz、tbz2、xz、zip</description>
+   </extension>
+diff --git a/vfs.libarchive/resources/language/resource.language.es_mx/strings.po b/vfs.libarchive/resources/language/resource.language.es_mx/strings.po
+index 7a4f38b..9e57235 100644
+--- a/vfs.libarchive/resources/language/resource.language.es_mx/strings.po
++++ b/vfs.libarchive/resources/language/resource.language.es_mx/strings.po
+@@ -7,7 +7,7 @@ msgstr ""
+ "Project-Id-Version: KODI Main\n"
+ "Report-Msgid-Bugs-To: translations@kodi.tv\n"
+ "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"PO-Revision-Date: 2021-09-06 05:29+0000\n"
++"PO-Revision-Date: 2021-09-26 15:30+0000\n"
+ "Last-Translator: Edson Armando <edsonarmando78@outlook.com>\n"
+ "Language-Team: Spanish (Mexico) <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-libarchive/es_mx/>\n"
+ "Language: es_mx\n"
+@@ -39,11 +39,11 @@ msgstr "Soporte para archivos RAR sólidos no disponible"
+ 
+ msgctxt "#30001"
+ msgid "Truncated RAR file data"
+-msgstr ""
++msgstr "Datos de archivo RAR truncados"
+ 
+ msgctxt "#30002"
+ msgid "Can't allocate rar data"
+-msgstr ""
++msgstr "No se pueden alocar los datos RAR"
+ 
+ msgctxt "#30003"
+ msgid "Couldn't find out RAR header"
+@@ -51,7 +51,7 @@ msgstr "No se encontró el encabezado RAR"
+ 
+ msgctxt "#30004"
+ msgid "Invalid marker header"
+-msgstr ""
++msgstr "Encabezado de marcador inválido"
+ 
+ msgctxt "#30005"
+ msgid "Invalid header size"
+@@ -87,7 +87,7 @@ msgstr "Nombre de archivo inválido"
+ 
+ msgctxt "#30013"
+ msgid "Mismatch of file parts split across multi-volume archive"
+-msgstr ""
++msgstr "Coincidencia errónea de partes de archivo de un archivo multivolumen"
+ 
+ msgctxt "#30014"
+ msgid "Header CRC error"
+@@ -95,7 +95,7 @@ msgstr "Error de CRC en encabezado"
+ 
+ msgctxt "#30015"
+ msgid "Parsing filters is unsupported"
+-msgstr ""
++msgstr "El manejo de filtros no está soportado"
+ 
+ msgctxt "#30016"
+ msgid "Invalid symbol"
+diff --git a/vfs.libarchive/resources/language/resource.language.pt_br/strings.po b/vfs.libarchive/resources/language/resource.language.pt_br/strings.po
+index 5a5094b..fd2f5ce 100644
+--- a/vfs.libarchive/resources/language/resource.language.pt_br/strings.po
++++ b/vfs.libarchive/resources/language/resource.language.pt_br/strings.po
+@@ -5,24 +5,25 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: KODI Main\n"
+-"Report-Msgid-Bugs-To: https://github.com/xbmc/vfs.libarchive/issues/\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+ "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"Last-Translator: Automatically generated\n"
+-"Language-Team: none\n"
++"PO-Revision-Date: 2021-12-07 00:13+0000\n"
++"Last-Translator: Fabio <fabioihle+kodi@alunos.utfpr.edu.br>\n"
++"Language-Team: Portuguese (Brazil) <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-libarchive/pt_br/>\n"
+ "Language: pt_br\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n > 1;\n"
++"X-Generator: Weblate 4.9.1\n"
+ 
+ msgctxt "Addon Summary"
+ msgid "Multi-format archive and compression addon"
+-msgstr ""
++msgstr "Add-on para arquivos multiformato e compressão"
+ 
+ msgctxt "Addon Description"
+ msgid "This add-on uses the libarchive library to read a variety of archive and compression formats.[CR][CR]Supported formats are:[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz, tgz, tbz2, xz, zip"
+-msgstr ""
++msgstr "Este add-on usa a biblioteca libarchive para ler uma variedade de arquivos e formatos de compressão.[CR][CR]Os formatos suportados são:[CR]7z, bz2, gz, tar, tar.bz2, tar.gz, tar.xz, tgz, tbz2, xz, zip"
+ 
+ # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+ # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+@@ -34,72 +35,72 @@ msgstr ""
+ # Following strings used for addon settings dialog
+ msgctxt "#30000"
+ msgid "RAR solid archive support unavailable"
+-msgstr ""
++msgstr "Suporte indisponível para arquivos RAR modo sólido"
+ 
+ msgctxt "#30001"
+ msgid "Truncated RAR file data"
+-msgstr ""
++msgstr "Dados do arquivo RAR truncados"
+ 
+ msgctxt "#30002"
+ msgid "Can't allocate rar data"
+-msgstr ""
++msgstr "Não foi possível alocar os dados RAR"
+ 
+ msgctxt "#30003"
+ msgid "Couldn't find out RAR header"
+-msgstr ""
++msgstr "Não foi possível encontrar cabeçalho RAR"
+ 
+ msgctxt "#30004"
+ msgid "Invalid marker header"
+-msgstr ""
++msgstr "Cabeçalho de marcador inválido"
+ 
+ msgctxt "#30005"
+ msgid "Invalid header size"
+-msgstr ""
++msgstr "Tamanho de cabeçalho inválido"
+ 
+ msgctxt "#30006"
+ msgid "RAR encryption support unavailable"
+-msgstr ""
++msgstr "Suporte indisponível para criptografia RAR"
+ 
+ msgctxt "#30007"
+ msgid "Header CRC error"
+-msgstr ""
++msgstr "Erro CRC do cabeçalho"
+ 
+ msgctxt "#30008"
+ msgid "Invalid sizes specified"
+-msgstr ""
++msgstr "Tamanhos inválidos especificados"
+ 
+ msgctxt "#30009"
+ msgid "Bad RAR file"
+-msgstr ""
++msgstr "Arquivo RAR com defeito"
+ 
+ msgctxt "#30010"
+ msgid "Unsupported compression method for RAR file"
+-msgstr ""
++msgstr "Método de compressão não suportado para arquivo RAR"
+ 
+ msgctxt "#30011"
+ msgid "Error during seek within RAR file"
+-msgstr ""
++msgstr "Erro durante a busca no arquivo RAR"
+ 
+ msgctxt "#30012"
+ msgid "Invalid filename"
+-msgstr ""
++msgstr "Nome de arquivo inválido"
+ 
+ msgctxt "#30013"
+ msgid "Mismatch of file parts split across multi-volume archive"
+-msgstr ""
++msgstr "Incompatibilidade de partes do arquivo divididas em um arquivo de múltiplos volumes"
+ 
+ msgctxt "#30014"
+ msgid "Header CRC error"
+-msgstr ""
++msgstr "Erro CRC do cabeçalho"
+ 
+ msgctxt "#30015"
+ msgid "Parsing filters is unsupported"
+-msgstr ""
++msgstr "Filtros de análise não são suportados"
+ 
+ msgctxt "#30016"
+ msgid "Invalid symbol"
+-msgstr ""
++msgstr "Símbolo inválido"
+ 
+ msgctxt "#30017"
+ msgid "Internal error extracting RAR file"
+-msgstr ""
++msgstr "Erro interno ao extrair arquivo RAR"
+
+From 5207c12c0a6fdcf00c498b21013d16489e4c6899 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:33:45 +0100
+Subject: [PATCH 2/3] API related update
+
+---
+ src/ArchiveFile.cpp | 51 +++++++++++++++++++++------------------------
+ 1 file changed, 24 insertions(+), 27 deletions(-)
+
+diff --git a/src/ArchiveFile.cpp b/src/ArchiveFile.cpp
+index 5211b5f..b5bd3ce 100644
+--- a/src/ArchiveFile.cpp
++++ b/src/ArchiveFile.cpp
+@@ -48,7 +48,7 @@ static std::string URLEncode(const std::string& strURLData)
+   return strResult;
+ }
+ 
+-class ATTRIBUTE_HIDDEN CArchiveFile : public kodi::addon::CInstanceVFS
++class ATTR_DLL_LOCAL CArchiveFile : public kodi::addon::CInstanceVFS
+ {
+   struct CbData
+   {
+@@ -194,7 +194,7 @@ class ATTRIBUTE_HIDDEN CArchiveFile : public kodi::addon::CInstanceVFS
+     return ARCHIVE_OK;
+   }
+ 
+-  CArchiveFile(KODI_HANDLE instance, const std::string& version) : CInstanceVFS(instance, version)
++  CArchiveFile(const kodi::addon::IInstanceInfo& instance) : CInstanceVFS(instance)
+   {
+   }
+ 
+@@ -461,92 +461,89 @@ class ATTRIBUTE_HIDDEN CArchiveFile : public kodi::addon::CInstanceVFS
+   {
+     if (errorString == "RAR solid archive support unavailable.")
+     {
+-      return kodi::GetLocalizedString(30000, errorString);
++      return kodi::addon::GetLocalizedString(30000, errorString);
+     }
+     if (errorString == "Truncated RAR file data")
+     {
+-      return kodi::GetLocalizedString(30001, errorString);
++      return kodi::addon::GetLocalizedString(30001, errorString);
+     }
+     if (errorString == "Can't allocate rar data")
+     {
+-      return kodi::GetLocalizedString(30002, errorString);
++      return kodi::addon::GetLocalizedString(30002, errorString);
+     }
+     if (errorString == "Couldn't find out RAR header")
+     {
+-      return kodi::GetLocalizedString(30003, errorString);
++      return kodi::addon::GetLocalizedString(30003, errorString);
+     }
+     if (errorString == "Invalid marker header")
+     {
+-      return kodi::GetLocalizedString(30004, errorString);
++      return kodi::addon::GetLocalizedString(30004, errorString);
+     }
+     if (errorString == "Invalid header size" || errorString == "Invalid header size too small")
+     {
+-      return kodi::GetLocalizedString(30005, errorString);
++      return kodi::addon::GetLocalizedString(30005, errorString);
+     }
+     if (errorString == "RAR encryption support unavailable.")
+     {
+-      return kodi::GetLocalizedString(30006, errorString);
++      return kodi::addon::GetLocalizedString(30006, errorString);
+     }
+     if (errorString == "Header CRC error")
+     {
+-      return kodi::GetLocalizedString(30007, errorString);
++      return kodi::addon::GetLocalizedString(30007, errorString);
+     }
+     if (errorString == "Invalid sizes specified.")
+     {
+-      return kodi::GetLocalizedString(30008, errorString);
++      return kodi::addon::GetLocalizedString(30008, errorString);
+     }
+     if (errorString == "Bad RAR file")
+     {
+-      return kodi::GetLocalizedString(30009, errorString);
++      return kodi::addon::GetLocalizedString(30009, errorString);
+     }
+     if (errorString == "Unsupported compression method for RAR file.")
+     {
+-      return kodi::GetLocalizedString(30010, errorString);
++      return kodi::addon::GetLocalizedString(30010, errorString);
+     }
+     if (errorString == "Error during seek of RAR file")
+     {
+-      return kodi::GetLocalizedString(30011, errorString);
++      return kodi::addon::GetLocalizedString(30011, errorString);
+     }
+     if (errorString == "Invalid filename")
+     {
+-      return kodi::GetLocalizedString(30012, errorString);
++      return kodi::addon::GetLocalizedString(30012, errorString);
+     }
+     if (errorString == "Mismatch of file parts split across multi-volume archive")
+     {
+-      return kodi::GetLocalizedString(30013, errorString);
++      return kodi::addon::GetLocalizedString(30013, errorString);
+     }
+     if (errorString == "File CRC error")
+     {
+-      return kodi::GetLocalizedString(30014, errorString);
++      return kodi::addon::GetLocalizedString(30014, errorString);
+     }
+     if (errorString == "Parsing filters is unsupported.")
+     {
+-      return kodi::GetLocalizedString(30015, errorString);
++      return kodi::addon::GetLocalizedString(30015, errorString);
+     }
+     if (errorString == "Invalid symbol")
+     {
+-      return kodi::GetLocalizedString(30016, errorString);
++      return kodi::addon::GetLocalizedString(30016, errorString);
+     }
+     if (errorString == "Internal error extracting RAR file")
+     {
+-      return kodi::GetLocalizedString(30017, errorString);
++      return kodi::addon::GetLocalizedString(30017, errorString);
+     }
+ 
+     return errorString;
+   }
+ };
+ 
+-class ATTRIBUTE_HIDDEN CMyAddon : public kodi::addon::CAddonBase
++class ATTR_DLL_LOCAL CMyAddon : public kodi::addon::CAddonBase
+ {
+ public:
+   CMyAddon() = default;
+-  ADDON_STATUS CreateInstance(int instanceType,
+-                              const std::string& instanceID,
+-                              KODI_HANDLE instance,
+-                              const std::string& version,
+-                              KODI_HANDLE& addonInstance) override
++  ADDON_STATUS CreateInstance(const kodi::addon::IInstanceInfo& instance,
++                              KODI_ADDON_INSTANCE_HDL& hdl) override
+   {
+-    addonInstance = new CArchiveFile(instance, version);
++    hdl = new CArchiveFile(instance);
+     return ADDON_STATUS_OK;
+   }
+ };
+
+From 338216efd68885515e9ef5438b2362c4a14dba5a Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:33:56 +0100
+Subject: [PATCH 3/3] increase version to 20.1.0
+
+---
+ vfs.libarchive/addon.xml.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vfs.libarchive/addon.xml.in b/vfs.libarchive/addon.xml.in
+index b7b444b..860e893 100644
+--- a/vfs.libarchive/addon.xml.in
++++ b/vfs.libarchive/addon.xml.in
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <addon
+   id="vfs.libarchive"
+-  version="20.0.0"
++  version="20.1.0"
+   name="Archive support"
+   provider-name="spiff">
+   <requires>@ADDON_DEPENDS@</requires>

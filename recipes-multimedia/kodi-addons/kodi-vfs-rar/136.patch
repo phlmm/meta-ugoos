@@ -1,0 +1,710 @@
+From 01f2985bd9a776d2fda7c3ccf94c551374079b30 Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:03:56 +0100
+Subject: [PATCH 1/3] sync translations with Matrix version
+
+---
+ src/RarControl.cpp                            |  8 +--
+ src/RarManager.cpp                            |  5 +-
+ vfs.rar/addon.xml.in                          |  4 ++
+ .../resource.language.da_dk/strings.po        | 18 +++----
+ .../resource.language.es_mx/strings.po        | 53 ++++++++++---------
+ .../resource.language.pt_br/strings.po        | 53 ++++++++++---------
+ .../resource.language.sv_se/strings.po        |  6 +--
+ 7 files changed, 79 insertions(+), 68 deletions(-)
+
+diff --git a/src/RarControl.cpp b/src/RarControl.cpp
+index c1d7683..94ada80 100644
+--- a/src/RarControl.cpp
++++ b/src/RarControl.cpp
+@@ -134,11 +134,11 @@ int CRARControl::ArchiveExtract(const std::string& targetPath, const std::string
+   int retValue = 0;
+   char name[MAX_PATH_LENGTH];
+ 
+-  if (!kodi::vfs::FileExists(m_path))
++/*  if (!kodi::vfs::FileExists(m_path))
+   {
+     kodiLog(ADDON_LOG_DEBUG, "CRARControl::%s: Request file %s not present", __func__, m_path.c_str());
+     return retValue;
+-  }
++  }*/
+ 
+   bool all = (fileToExtract.empty() || fileToExtract == "*");
+ 
+@@ -243,13 +243,13 @@ int CRARControl::ArchiveExtract(const std::string& targetPath, const std::string
+         int64 diskSpace = GetFreeDisk(path);
+ 
+         // Check filesize + 10 MByte is available on disk
+-        if (m_extractFileSize + (10 * 1024 * 1024) >= diskSpace)
++/*        if (m_extractFileSize + (10 * 1024 * 1024) >= diskSpace)
+         {
+           kodiLog(ADDON_LOG_ERROR, "CRARControl::%s: Not enough diskSpace with %li MB for file %s with size %li MB",
+                       __func__, diskSpace / 1024 / 1024, m_path.c_str(), m_extractFileSize / 1024 / 1024);
+           kodi::QueueNotification(QUEUE_ERROR, kodi::GetLocalizedString(30000), kodi::GetLocalizedString(30004));
+           return 0;
+-        }
++        }*/
+ 
+         if (m_progress)
+         {
+diff --git a/src/RarManager.cpp b/src/RarManager.cpp
+index 5b4ec42..6d09cf8 100644
+--- a/src/RarManager.cpp
++++ b/src/RarManager.cpp
+@@ -89,6 +89,7 @@ bool CRarManager::CacheRarredFile(std::string& strPathInCache, const std::string
+                                   const std::string& strPathInRar, uint8_t bOptions,
+                                   const std::string& strDir, const int64_t iSize)
+ {
++fprintf(stderr, "---------------------------------------------------------------------------- '%s' '%s'\n", strRarPath.c_str(), strPathInRar.c_str());
+   bool bShowProgress=false;
+   if ((iSize > 1024*1024 || iSize == -2) && !(bOptions & EXFILE_NOCACHE)) // 1MB
+     bShowProgress=true;
+@@ -145,7 +146,7 @@ bool CRarManager::CacheRarredFile(std::string& strPathInCache, const std::string
+       return false;
+   }
+ 
+-  if (CheckFreeSpace(strDir) < iSize)
++/*  if (CheckFreeSpace(strDir) < iSize)
+   {
+     ClearCache();
+     if (CheckFreeSpace(strDir) < iSize)
+@@ -170,7 +171,7 @@ bool CRarManager::CacheRarredFile(std::string& strPathInCache, const std::string
+         return false;
+       }
+     }
+-  }
++  }*/
+ 
+   std::string cf = strDir+"rarfolderXXXXXX";
+ #ifdef _WIN32
+diff --git a/vfs.rar/addon.xml.in b/vfs.rar/addon.xml.in
+index a9e7340..9f41efe 100644
+--- a/vfs.rar/addon.xml.in
++++ b/vfs.rar/addon.xml.in
+@@ -25,16 +25,20 @@
+     <summary lang="ca_ES">Desarxivador per fitxers .rar</summary>
+     <summary lang="de_DE">Entpacker für Rar-Dateien</summary>
+     <summary lang="en_GB">Unarchiver for .rar files</summary>
++    <summary lang="es_MX">Descompresor de archivos .rar</summary>
+     <summary lang="ko_KR">.rar 파일용 아카이브 추출</summary>
+     <summary lang="pl_PL">Ekstraktor plików .rar</summary>
++    <summary lang="pt_BR">Descompactador para arquivos .rar</summary>
+     <summary lang="ru_RU">Распаковщик для архивов .rar</summary>
+     <summary lang="sv_SE">Uppackare för .rar-filer</summary>
+     <summary lang="zh_CN">解压 .rar 文件</summary>
+     <description lang="ca_ES">Aquest complement és una utilitat d'extracció per a arxius RAR.[CR][CR]Permet la lectura directa de fitxers RAR sense comprimir, de manera que no és necessari desempaquetar prèviament. Per a la resta de tipus, es desempaqueta temporalment i es passa a Kodi.[CR][CR]Atenció: el tipus d'arxiu &quot;RAR sòlid&quot; requereix descomprimir completament per utilitzar els fitxers. Per tant, els temps d'accés poden ser llargs pels paquets més grans.</description>
+     <description lang="de_DE">Dieses Addon dient zum Entpacken von RAR-Archiven.[CR][CR]Es ermöglicht das direkte Lesen nicht komprimierter RAR-Dateien, sodass ein vorheriges Entpacken nicht erforderlich ist. Bei allen anderen Typen wird der Inhalt temporär entpackt und an Kodi übertragen.[CR][CR]Achtung: Der Archivtyp &quot;Solid RAR&quot; erfordert ein vollständiges Entpacken, um die darin enthaltenen Dateien zu verwenden. Daher können die Zugriffszeiten für größere Pakete länger sein.</description>
+     <description lang="en_GB">This addon is an extraction utility for RAR archives.[CR][CR]It allows direct reading of uncompressed RAR files, so prior unpacking is not necessary. For all other types, it is temporarily unpacked and passed to Kodi.[CR][CR]Attention: A &quot;Solid RAR&quot; archive type requires complete unpacking to use files within it. Hence access times may be long for larger packages.</description>
++    <description lang="es_MX">Este complemento es una utilidad de extracción para archivos RAR.[CR][CR]Permite lectura directa de archivos RAR sin compresión, así que no es necesario descomprimir previamente. Para todos los demás tipos, se descomprime temporalmente y se pasa esto a Kodi.[CR][CR]Atención: Un archivo del tipo &quot;RAR sólido&quot; requiere descompresión completa para utilizar los archivos dentro de. Debido a esto los tiempos de acceso pueden ser extensos para archivos grandes.</description>
+     <description lang="ko_KR">이 애드온은 RAR 아카이브용 추출 유틸리티입니다.[CR][CR]압축되지 않은 RAR 파일을 직접 읽을 수 있으므로 사전 압축 풀기가 필요하지 않습니다. 다른 모든 유형의 경우 일시적으로 압축을 풀고 Kodi로 전달됩니다.[CR][CR]주의: &quot;Solid RAR&quot; 아카이브 유형은 그 안에 있는 파일을 사용하기 위해 완전히 압축을 풀어야 합니다. 따라서 더 큰 패키지의 경우 액세스 시간이 길어질 수 있습니다.</description>
+     <description lang="pl_PL">Ten dodatek jest narzędziem do ekstrakcji archiwów RAR.[CR][CR]Pozwala na bezpośredni odczyt nieskompresowanych plików RAR, więc wcześniejsze rozpakowanie nie jest konieczne. W przypadku wszystkich innych typów są one tymczasowo rozpakowywane i przekazywane do Kodi.[CR][CR]Uwaga: typ archiwum „Ciągły RAR” wymaga całkowitego rozpakowania, aby móc korzystać z zawartych w nim plików. Z tego powodu czasy dostępu mogą być długie w przypadku większych pakietów.</description>
++    <description lang="pt_BR">Este add-on é um utilitário de extração para arquivos RAR.[CR][CR]Ele permite a leitura direta de arquivos RAR sem compressão, nos quais a descompactação prévia não é necessária. Para todos os outros tipos, os arquivos são descompactados temporariamente e repassados para o Kodi.[CR][CR]Atenção: Um arquivo do tipo &quot;RAR Sólido&quot; requer uma descompactação completa para acesso aos arquivos contidos. Consequentemente, os tempos de acesso podem ser mais longos em pacotes maiores.</description>
+     <description lang="ru_RU">Это дополнение представляет собой утилиту для работы с архивами RAR.[CR][CR]Оно позволяет напрямую читать несжатые файлы RAR, поэтому предварительная распаковка не требуется. Для всех остальных типов архив временно распаковывается и данные передаются в Kodi.[CR][CR]Внимание: Тип архива &quot;Непрерывный&quot; требует полной распаковки для использования файлов из него. Поэтому для больших пакетов время доступа увеличится.</description>
+     <description lang="sv_SE">Detta tillägg är ett uppackningsverktyg för RAR-arkiv.[CR][CR]Detta gör det möjligt att spela upp okomprimerade RAR-filer utan att de först packas upp. För alla andra typer, packas den upp tillfälligt och skickas sedan till Kodi.[CR][CR]Observera: Ett &quot;Fast&quot; arkiv kräver en komplett uppackning av arkivet. Därför kan uppstartstiden ta lång tid om det är ett stort arkiv.</description>
+     <description lang="zh_CN">此插件是 RAR 压缩文件的解压实用程序。[CR][CR]它允许直接读取 RAR 文件，因此无需事先解压缩。对于所有其他类型，它会临时解包并传递给 Kodi。[CR][CR]注意：“Solid RAR”压缩类型需要完全解包才能使用其中的文件。对于较大的压缩包，访问时间可能较长。</description>
+diff --git a/vfs.rar/resources/language/resource.language.da_dk/strings.po b/vfs.rar/resources/language/resource.language.da_dk/strings.po
+index 88c7fa1..4959e79 100644
+--- a/vfs.rar/resources/language/resource.language.da_dk/strings.po
++++ b/vfs.rar/resources/language/resource.language.da_dk/strings.po
+@@ -7,7 +7,7 @@ msgstr ""
+ "Project-Id-Version: KODI Main\n"
+ "Report-Msgid-Bugs-To: translations@kodi.tv\n"
+ "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"PO-Revision-Date: 2021-07-27 10:49+0000\n"
++"PO-Revision-Date: 2021-10-25 10:02+0000\n"
+ "Last-Translator: Christian Gade <gade@kodi.tv>\n"
+ "Language-Team: Danish <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-rar/da_dk/>\n"
+ "Language: da_dk\n"
+@@ -15,7 +15,7 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n != 1;\n"
+-"X-Generator: Weblate 4.7.2\n"
++"X-Generator: Weblate 4.8\n"
+ 
+ msgctxt "Addon Summary"
+ msgid "Unarchiver for .rar files"
+@@ -63,7 +63,7 @@ msgstr "Generel"
+ 
+ msgctxt "#30011"
+ msgid "Ask for password"
+-msgstr "Spørg efter kodeord"
++msgstr "Spørg efter adgangskode"
+ 
+ msgctxt "#30012"
+ msgid "If archives are password protected, prompt for the password to be entered"
+@@ -75,23 +75,23 @@ msgstr "Foruddefineret adgangskode til at forsøge dekompression med"
+ 
+ msgctxt "#30014"
+ msgid "Stored password 1"
+-msgstr "Gemt kodeord 1"
++msgstr "Gemt adgangskode 1"
+ 
+ msgctxt "#30015"
+ msgid "Stored password 2"
+-msgstr "Gemt kodeord 2"
++msgstr "Gemt adgangskode 2"
+ 
+ msgctxt "#30016"
+ msgid "Stored password 3"
+-msgstr "Gemt kodeord 3"
++msgstr "Gemt adgangskode 3"
+ 
+ msgctxt "#30017"
+ msgid "Stored password 4"
+-msgstr "Gemt kodeord 4"
++msgstr "Gemt adgangskode 4"
+ 
+ msgctxt "#30018"
+ msgid "Stored password 5"
+-msgstr "Gemt kodeord 5"
++msgstr "Gemt adgangskode 5"
+ 
+ msgctxt "#30019"
+ msgid "Confirm copy"
+@@ -107,7 +107,7 @@ msgstr "Ikke nok tilgængelig hukommelse til at dekomprimere filen"
+ 
+ msgctxt "#30022"
+ msgid "Passwords"
+-msgstr "Kodeord"
++msgstr "Adgangskoder"
+ 
+ msgctxt "#30023"
+ msgid "Asks to unpack"
+diff --git a/vfs.rar/resources/language/resource.language.es_mx/strings.po b/vfs.rar/resources/language/resource.language.es_mx/strings.po
+index a15e3c4..30484fa 100644
+--- a/vfs.rar/resources/language/resource.language.es_mx/strings.po
++++ b/vfs.rar/resources/language/resource.language.es_mx/strings.po
+@@ -5,24 +5,25 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: KODI Main\n"
+-"Report-Msgid-Bugs-To: https://github.com/xbmc/vfs.rar/issues/\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+ "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"Last-Translator: Automatically generated\n"
+-"Language-Team: none\n"
++"PO-Revision-Date: 2021-09-26 15:30+0000\n"
++"Last-Translator: Edson Armando <edsonarmando78@outlook.com>\n"
++"Language-Team: Spanish (Mexico) <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-rar/es_mx/>\n"
+ "Language: es_mx\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n != 1;\n"
++"X-Generator: Weblate 4.8\n"
+ 
+ msgctxt "Addon Summary"
+ msgid "Unarchiver for .rar files"
+-msgstr ""
++msgstr "Descompresor de archivos .rar"
+ 
+ msgctxt "Addon Description"
+ msgid "This addon is an extraction utility for RAR archives.[CR][CR]It allows direct reading of uncompressed RAR files, so prior unpacking is not necessary. For all other types, it is temporarily unpacked and passed to Kodi.[CR][CR]Attention: A \"Solid RAR\" archive type requires complete unpacking to use files within it. Hence access times may be long for larger packages."
+-msgstr ""
++msgstr "Este complemento es una utilidad de extracción para archivos RAR.[CR][CR]Permite lectura directa de archivos RAR sin compresión, así que no es necesario descomprimir previamente. Para todos los demás tipos, se descomprime temporalmente y se pasa esto a Kodi.[CR][CR]Atención: Un archivo del tipo \"RAR sólido\" requiere descompresión completa para utilizar los archivos dentro de. Debido a esto los tiempos de acceso pueden ser extensos para archivos grandes."
+ 
+ # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+ # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+@@ -33,83 +34,85 @@ msgstr ""
+ # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+ msgctxt "#30000"
+ msgid "RAR file extract"
+-msgstr ""
++msgstr "Extracción de archivo RAR"
+ 
+ msgctxt "#30001"
+ msgid "RAR file scan"
+-msgstr ""
++msgstr "Escaneo de archivo RAR"
+ 
+ msgctxt "#30002"
+ msgid "RAR solid file scan"
+-msgstr ""
++msgstr "Escaneo de archivo sólido RAR"
+ 
+ msgctxt "#30003"
+ msgid ""
+ "Enter RAR package password for:\n"
+ "%s"
+ msgstr ""
++"Ingresa la contraseña del archivo RAR para:\n"
++"%s"
+ 
+ msgctxt "#30004"
+ msgid "Not enough disk space available"
+-msgstr ""
++msgstr "No hay suficiente espacio en disco disponible"
+ 
+ # Following strings used for addon settings dialog
+ msgctxt "#30010"
+ msgid "General"
+-msgstr ""
++msgstr "General"
+ 
+ msgctxt "#30011"
+ msgid "Ask for password"
+-msgstr ""
++msgstr "Preguntar contraseña"
+ 
+ msgctxt "#30012"
+ msgid "If archives are password protected, prompt for the password to be entered"
+-msgstr ""
++msgstr "Si los archivos están protegidos por contraseña, pedir que se ingrese la contraseña"
+ 
+ msgctxt "#30013"
+ msgid "Pre-defined password to attempt decompression with"
+-msgstr ""
++msgstr "Contraseña predefinida con la que se intentará descomprimir"
+ 
+ msgctxt "#30014"
+ msgid "Stored password 1"
+-msgstr ""
++msgstr "Contraseña almacenada 1"
+ 
+ msgctxt "#30015"
+ msgid "Stored password 2"
+-msgstr ""
++msgstr "Contraseña almacenada 2"
+ 
+ msgctxt "#30016"
+ msgid "Stored password 3"
+-msgstr ""
++msgstr "Contraseña almacenada 3"
+ 
+ msgctxt "#30017"
+ msgid "Stored password 4"
+-msgstr ""
++msgstr "Contraseña almacenada 4"
+ 
+ msgctxt "#30018"
+ msgid "Stored password 5"
+-msgstr ""
++msgstr "Contraseña almacenada 5"
+ 
+ msgctxt "#30019"
+ msgid "Confirm copy"
+-msgstr ""
++msgstr "Confirmar copia"
+ 
+ msgctxt "#30020"
+ msgid "Need to unpack a big file. Continue?"
+-msgstr ""
++msgstr "Se necesita descomprimir un archivo grande. ¿Continuar?"
+ 
+ msgctxt "#30021"
+ msgid "Not enough memory available to decompress file"
+-msgstr ""
++msgstr "No hay suficiente memoria disponible para descomprimir el archivo"
+ 
+ msgctxt "#30022"
+ msgid "Passwords"
+-msgstr ""
++msgstr "Contraseñas"
+ 
+ msgctxt "#30023"
+ msgid "Asks to unpack"
+-msgstr ""
++msgstr "Pregunta para descomprimir"
+ 
+ msgctxt "#30024"
+ msgid "Asks you with a dialog to confirm the unpacking of a larger file."
+-msgstr ""
++msgstr "Mediante un diálogo pide confirmar la descompresión de un archivo grande."
+diff --git a/vfs.rar/resources/language/resource.language.pt_br/strings.po b/vfs.rar/resources/language/resource.language.pt_br/strings.po
+index 599622e..de685b5 100644
+--- a/vfs.rar/resources/language/resource.language.pt_br/strings.po
++++ b/vfs.rar/resources/language/resource.language.pt_br/strings.po
+@@ -5,24 +5,25 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: KODI Main\n"
+-"Report-Msgid-Bugs-To: https://github.com/xbmc/vfs.rar/issues/\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+ "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"Last-Translator: Automatically generated\n"
+-"Language-Team: none\n"
++"PO-Revision-Date: 2021-12-07 00:13+0000\n"
++"Last-Translator: Fabio <fabioihle+kodi@alunos.utfpr.edu.br>\n"
++"Language-Team: Portuguese (Brazil) <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-rar/pt_br/>\n"
+ "Language: pt_br\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n > 1;\n"
++"X-Generator: Weblate 4.9.1\n"
+ 
+ msgctxt "Addon Summary"
+ msgid "Unarchiver for .rar files"
+-msgstr ""
++msgstr "Descompactador para arquivos .rar"
+ 
+ msgctxt "Addon Description"
+ msgid "This addon is an extraction utility for RAR archives.[CR][CR]It allows direct reading of uncompressed RAR files, so prior unpacking is not necessary. For all other types, it is temporarily unpacked and passed to Kodi.[CR][CR]Attention: A \"Solid RAR\" archive type requires complete unpacking to use files within it. Hence access times may be long for larger packages."
+-msgstr ""
++msgstr "Este add-on é um utilitário de extração para arquivos RAR.[CR][CR]Ele permite a leitura direta de arquivos RAR sem compressão, nos quais a descompactação prévia não é necessária. Para todos os outros tipos, os arquivos são descompactados temporariamente e repassados para o Kodi.[CR][CR]Atenção: Um arquivo do tipo \"RAR Sólido\" requer uma descompactação completa para acesso aos arquivos contidos. Consequentemente, os tempos de acesso podem ser mais longos em pacotes maiores."
+ 
+ # [Consistency] Make terms, settings names, brands and other minutiae, consistent throughout file.
+ # [Capitalization] Avoid capitalizing every second word. See http://grammarist.com/capitalization/
+@@ -33,83 +34,85 @@ msgstr ""
+ # For example, "Press \"OK\" for \"All seasons\"" instead of "Press OK for All seasons" after first word.
+ msgctxt "#30000"
+ msgid "RAR file extract"
+-msgstr ""
++msgstr "Extração de arquivo RAR"
+ 
+ msgctxt "#30001"
+ msgid "RAR file scan"
+-msgstr ""
++msgstr "Verificação de arquivo RAR"
+ 
+ msgctxt "#30002"
+ msgid "RAR solid file scan"
+-msgstr ""
++msgstr "Verificação de arquivo RAR sólido"
+ 
+ msgctxt "#30003"
+ msgid ""
+ "Enter RAR package password for:\n"
+ "%s"
+ msgstr ""
++"Insira a senha do pacote RAR para:\n"
++"%s"
+ 
+ msgctxt "#30004"
+ msgid "Not enough disk space available"
+-msgstr ""
++msgstr "Espaço disponível em disco insuficiente"
+ 
+ # Following strings used for addon settings dialog
+ msgctxt "#30010"
+ msgid "General"
+-msgstr ""
++msgstr "Geral"
+ 
+ msgctxt "#30011"
+ msgid "Ask for password"
+-msgstr ""
++msgstr "Solicitar senha"
+ 
+ msgctxt "#30012"
+ msgid "If archives are password protected, prompt for the password to be entered"
+-msgstr ""
++msgstr "Se os arquivos forem protegidos por senha, solicite que a senha seja inserida"
+ 
+ msgctxt "#30013"
+ msgid "Pre-defined password to attempt decompression with"
+-msgstr ""
++msgstr "Senha pré-definida para tentar a descompressão com"
+ 
+ msgctxt "#30014"
+ msgid "Stored password 1"
+-msgstr ""
++msgstr "Senha memorizada 1"
+ 
+ msgctxt "#30015"
+ msgid "Stored password 2"
+-msgstr ""
++msgstr "Senha memorizada 2"
+ 
+ msgctxt "#30016"
+ msgid "Stored password 3"
+-msgstr ""
++msgstr "Senha memorizada 3"
+ 
+ msgctxt "#30017"
+ msgid "Stored password 4"
+-msgstr ""
++msgstr "Senha memorizada 4"
+ 
+ msgctxt "#30018"
+ msgid "Stored password 5"
+-msgstr ""
++msgstr "Senha memorizada 5"
+ 
+ msgctxt "#30019"
+ msgid "Confirm copy"
+-msgstr ""
++msgstr "Confirmar cópia"
+ 
+ msgctxt "#30020"
+ msgid "Need to unpack a big file. Continue?"
+-msgstr ""
++msgstr "Necessário descompactar um arquivo grande. Prosseguir?"
+ 
+ msgctxt "#30021"
+ msgid "Not enough memory available to decompress file"
+-msgstr ""
++msgstr "Memória disponível insuficiente para descompactar o arquivo"
+ 
+ msgctxt "#30022"
+ msgid "Passwords"
+-msgstr ""
++msgstr "Senhas"
+ 
+ msgctxt "#30023"
+ msgid "Asks to unpack"
+-msgstr ""
++msgstr "Perguntar para descompactar"
+ 
+ msgctxt "#30024"
+ msgid "Asks you with a dialog to confirm the unpacking of a larger file."
+-msgstr ""
++msgstr "Solicita através de uma caixa de diálogo a confirmação para iniciar a descompactação de um arquivo grande."
+diff --git a/vfs.rar/resources/language/resource.language.sv_se/strings.po b/vfs.rar/resources/language/resource.language.sv_se/strings.po
+index e6f3439..dafdfd3 100644
+--- a/vfs.rar/resources/language/resource.language.sv_se/strings.po
++++ b/vfs.rar/resources/language/resource.language.sv_se/strings.po
+@@ -5,9 +5,9 @@
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: KODI Main\n"
+-"Report-Msgid-Bugs-To: https://github.com/xbmc/vfs.rar/issues/\n"
++"Report-Msgid-Bugs-To: translations@kodi.tv\n"
+ "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+-"PO-Revision-Date: 2021-04-25 19:29+0000\n"
++"PO-Revision-Date: 2021-10-25 10:02+0000\n"
+ "Last-Translator: Sopor <sopor@hotmail.com>\n"
+ "Language-Team: Swedish <https://kodi.weblate.cloud/projects/kodi-add-ons-virtual-filesystems/vfs-rar/sv_se/>\n"
+ "Language: sv_se\n"
+@@ -15,7 +15,7 @@ msgstr ""
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Plural-Forms: nplurals=2; plural=n != 1;\n"
+-"X-Generator: Weblate 4.6\n"
++"X-Generator: Weblate 4.8\n"
+ 
+ msgctxt "Addon Summary"
+ msgid "Unarchiver for .rar files"
+
+From 5ffd2ea8c1ed7a4d09bc917670c0b6e8a03f6a2e Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:32:58 +0100
+Subject: [PATCH 2/3] API related update
+
+---
+ src/RarControl.cpp  | 10 +++++-----
+ src/RarFile.cpp     |  7 ++++---
+ src/RarFile.h       |  2 +-
+ src/RarManager.cpp  | 16 ++++++++--------
+ src/RarManager.h    |  2 +-
+ src/RarPassword.cpp |  8 ++++----
+ 6 files changed, 23 insertions(+), 22 deletions(-)
+
+diff --git a/src/RarControl.cpp b/src/RarControl.cpp
+index 94ada80..a31f3eb 100644
+--- a/src/RarControl.cpp
++++ b/src/RarControl.cpp
+@@ -177,7 +177,7 @@ int CRARControl::ArchiveExtract(const std::string& targetPath, const std::string
+     // is to see that something works
+     m_progress = std::make_shared<kodi::gui::dialogs::CExtendedProgress>();
+     m_progress->SetPercentage(0.0f);
+-    m_progress->SetTitle(kodi::GetLocalizedString(solid ? 30002 : 30001));
++    m_progress->SetTitle(kodi::addon::GetLocalizedString(solid ? 30002 : 30001));
+     m_progress->SetText(m_path);
+   }
+ 
+@@ -247,14 +247,14 @@ int CRARControl::ArchiveExtract(const std::string& targetPath, const std::string
+         {
+           kodiLog(ADDON_LOG_ERROR, "CRARControl::%s: Not enough diskSpace with %li MB for file %s with size %li MB",
+                       __func__, diskSpace / 1024 / 1024, m_path.c_str(), m_extractFileSize / 1024 / 1024);
+-          kodi::QueueNotification(QUEUE_ERROR, kodi::GetLocalizedString(30000), kodi::GetLocalizedString(30004));
++          kodi::QueueNotification(QUEUE_ERROR, kodi::addon::GetLocalizedString(30000), kodi::addon::GetLocalizedString(30004));
+           return 0;
+         }*/
+ 
+         if (m_progress)
+         {
+           // After wanted file is found to progress with his real extract
+-          m_progress->SetTitle(kodi::GetLocalizedString(30000));
++          m_progress->SetTitle(kodi::addon::GetLocalizedString(30000));
+           m_progress->SetText(filename);
+           m_progress->SetProgress(int(float(m_extractedFileSize) / float(m_extractFileSize) * 100), 100);
+         }
+@@ -426,7 +426,7 @@ int CRARControl::NeedPassword(char* password, size_t size)
+   if (!passwordAskAllowed && pw.empty())
+     return STOP_PROCESSING;
+ 
+-  std::string header = StringFormat(kodi::GetLocalizedString(30003).c_str(), m_path.length() > 45 ? kodi::vfs::GetFileName(m_path).c_str() : m_path.c_str());
++  std::string header = StringFormat(kodi::addon::GetLocalizedString(30003).c_str(), m_path.length() > 45 ? kodi::vfs::GetFileName(m_path).c_str() : m_path.c_str());
+   if (!pw.empty() || kodi::gui::dialogs::Keyboard::ShowAndGetInput(pw, header, false, true))
+   {
+     strncpy(password, pw.c_str(), size);
+@@ -485,7 +485,7 @@ RARContext::RARContext(const kodi::addon::VFSUrl& url)
+   , m_arc(&m_cmd)
+   , m_extract(&m_cmd)
+ {
+-  m_cachedir = kodi::GetTempAddonPath("/");
++  m_cachedir = kodi::addon::GetTempPath("/");
+   m_password = url.GetPassword();
+   m_pathinrar = url.GetFilename();
+   std::replace(m_pathinrar.begin(), m_pathinrar.end(), '\\', '/');
+diff --git a/src/RarFile.cpp b/src/RarFile.cpp
+index 855f263..b8ce62f 100644
+--- a/src/RarFile.cpp
++++ b/src/RarFile.cpp
+@@ -562,13 +562,14 @@ class CMyAddon : public kodi::addon::CAddonBase
+     CRARPasswordControl::CleanupPasswordList();
+   }
+ 
+-  ADDON_STATUS CreateInstance(int instanceType, const std::string& instanceID, KODI_HANDLE instance, const std::string& version, KODI_HANDLE& addonInstance) override
++  ADDON_STATUS CreateInstance(const kodi::addon::IInstanceInfo& instance,
++                              KODI_ADDON_INSTANCE_HDL& hdl) override
+   {
+-    addonInstance = new CRARFile(instance, version);
++    hdl = new CRARFile(instance);
+     return ADDON_STATUS_OK;
+   }
+ 
+-  ADDON_STATUS SetSetting(const std::string& settingName, const kodi::CSettingValue& settingValue) override
++  ADDON_STATUS SetSetting(const std::string& settingName, const kodi::addon::CSettingValue& settingValue) override
+   {
+     CRarManager::Get().SettingsUpdate(settingName, settingValue);
+     return ADDON_STATUS_OK;
+diff --git a/src/RarFile.h b/src/RarFile.h
+index e401948..27a8d3d 100644
+--- a/src/RarFile.h
++++ b/src/RarFile.h
+@@ -12,7 +12,7 @@
+ class CRARFile : public kodi::addon::CInstanceVFS
+ {
+ public:
+-  CRARFile(KODI_HANDLE instance, const std::string& version) : CInstanceVFS(instance, version) { }
++  CRARFile(const kodi::addon::IInstanceInfo& instance) : CInstanceVFS(instance) { }
+ 
+   kodi::addon::VFSFileHandle Open(const kodi::addon::VFSUrl& url) override;
+   bool Close(kodi::addon::VFSFileHandle context) override;
+diff --git a/src/RarManager.cpp b/src/RarManager.cpp
+index 6d09cf8..061d12b 100644
+--- a/src/RarManager.cpp
++++ b/src/RarManager.cpp
+@@ -54,10 +54,10 @@ CRarManager& CRarManager::Get()
+ CRarManager::CRarManager()
+ {
+   // Load the current settings and store to reduce call amount of them
+-  m_asksToUnpack = kodi::GetSettingBoolean("asks_to_unpack");
+-  m_passwordAskAllowed = kodi::GetSettingBoolean("usercheck_for_password");
++  m_asksToUnpack = kodi::addon::GetSettingBoolean("asks_to_unpack");
++  m_passwordAskAllowed = kodi::addon::GetSettingBoolean("usercheck_for_password");
+   for (unsigned int i = 0; i < MAX_STANDARD_PASSWORDS; ++i)
+-    m_standardPasswords[i] = kodi::GetSettingString("standard_password_" + std::to_string(i+1));
++    m_standardPasswords[i] = kodi::addon::GetSettingString("standard_password_" + std::to_string(i+1));
+ }
+ 
+ CRarManager::~CRarManager()
+@@ -65,7 +65,7 @@ CRarManager::~CRarManager()
+   ClearCache(true);
+ }
+ 
+-void CRarManager::SettingsUpdate(const std::string& settingName, const kodi::CSettingValue& settingValue)
++void CRarManager::SettingsUpdate(const std::string& settingName, const kodi::addon::CSettingValue& settingValue)
+ {
+   // Update the by CMyAddon called settings values, done after change inside
+   // addon settings by e.g. user.
+@@ -139,8 +139,8 @@ fprintf(stderr, "---------------------------------------------------------------
+ 
+   if (m_asksToUnpack && iSize > EXTRACTION_WARN_SIZE)
+   {
+-    if (!kodi::gui::dialogs::YesNo::ShowAndGetInput(kodi::GetLocalizedString(30019),
+-                                                    kodi::GetLocalizedString(30020),
++    if (!kodi::gui::dialogs::YesNo::ShowAndGetInput(kodi::addon::GetLocalizedString(30019),
++                                                    kodi::addon::GetLocalizedString(30020),
+                                                     kodi::vfs::GetFileName(strRarPath),
+                                                     ""))
+       return false;
+@@ -152,7 +152,7 @@ fprintf(stderr, "---------------------------------------------------------------
+     if (CheckFreeSpace(strDir) < iSize)
+     {
+       std::vector<kodi::vfs::CDirEntry> items;
+-      kodi::vfs::GetDirectory(kodi::GetTempAddonPath("/"), "", items);
++      kodi::vfs::GetDirectory(kodi::addon::GetTempPath("/"), "", items);
+       while (!items.empty() && CheckFreeSpace(strDir) < iSize)
+       {
+         std::string path = items.back().Path();
+@@ -167,7 +167,7 @@ fprintf(stderr, "---------------------------------------------------------------
+ 
+       if (items.empty())
+       {
+-        kodi::QueueNotification(QUEUE_ERROR, "", kodi::GetLocalizedString(30021));
++        kodi::QueueNotification(QUEUE_ERROR, "", kodi::addon::GetLocalizedString(30021));
+         return false;
+       }
+     }
+diff --git a/src/RarManager.h b/src/RarManager.h
+index 9600f88..0c3ea8a 100644
+--- a/src/RarManager.h
++++ b/src/RarManager.h
+@@ -59,7 +59,7 @@ class CRarManager
+   void ClearCachedFile(const std::string& strRarPath, const std::string& strPathInRar);
+   void ExtractArchive(const std::string& strArchive, const std::string& strPath);
+ 
+-  void SettingsUpdate(const std::string& settingName, const kodi::CSettingValue& settingValue);
++  void SettingsUpdate(const std::string& settingName, const kodi::addon::CSettingValue& settingValue);
+   bool PasswordAskAllowed() const { return m_passwordAskAllowed; }
+   const std::string& StandardPassword(int no) { return m_standardPasswords[no]; }
+ 
+diff --git a/src/RarPassword.cpp b/src/RarPassword.cpp
+index a92bbc4..992c1da 100644
+--- a/src/RarPassword.cpp
++++ b/src/RarPassword.cpp
+@@ -16,7 +16,7 @@
+ void CRARPasswordControl::CleanupPasswordList()
+ {
+   TiXmlDocument xmlDoc;
+-  std::string strSettingsFile = kodi::GetBaseUserPath("rar-control.xml");
++  std::string strSettingsFile = kodi::addon::GetUserPath("rar-control.xml");
+ 
+   // Check file present and available, if not do nothing
+   if (!kodi::vfs::FileExists(strSettingsFile))
+@@ -65,7 +65,7 @@ void CRARPasswordControl::CleanupPasswordList()
+ bool CRARPasswordControl::GetPassword(const std::string& path, std::string& password, bool& passwordSeemsBad)
+ {
+   TiXmlDocument xmlDoc;
+-  std::string strSettingsFile = kodi::GetBaseUserPath("rar-control.xml");
++  std::string strSettingsFile = kodi::addon::GetUserPath("rar-control.xml");
+ 
+   if (!kodi::vfs::FileExists(strSettingsFile))
+     return false;
+@@ -113,7 +113,7 @@ bool CRARPasswordControl::GetPassword(const std::string& path, std::string& pass
+ bool CRARPasswordControl::SavePassword(const std::string& path, const std::string& password, const bool& passwordSeemsBad)
+ {
+   TiXmlDocument xmlDoc;
+-  std::string strSettingsFile = kodi::GetBaseUserPath("rar-control.xml");
++  std::string strSettingsFile = kodi::addon::GetUserPath("rar-control.xml");
+ 
+   if (kodi::vfs::FileExists(strSettingsFile))
+   {
+@@ -124,7 +124,7 @@ bool CRARPasswordControl::SavePassword(const std::string& path, const std::strin
+     }
+   }
+   else
+-    kodi::vfs::CreateDirectory(kodi::GetBaseUserPath());
++    kodi::vfs::CreateDirectory(kodi::addon::GetUserPath());
+ 
+   bool isUpdated = false;
+   TiXmlElement* pElement = xmlDoc.FirstChildElement("data");
+
+From 7af40e984b954c5f839fb677784859667f6d68bc Mon Sep 17 00:00:00 2001
+From: Alwin Esch <alwin.esch@web.de>
+Date: Mon, 27 Dec 2021 10:33:10 +0100
+Subject: [PATCH 3/3] increase version to 20.1.0
+
+---
+ vfs.rar/addon.xml.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vfs.rar/addon.xml.in b/vfs.rar/addon.xml.in
+index 9f41efe..96281ad 100644
+--- a/vfs.rar/addon.xml.in
++++ b/vfs.rar/addon.xml.in
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <addon
+   id="vfs.rar"
+-  version="20.0.0"
++  version="20.1.0"
+   name="RAR archive support"
+   provider-name="spiff">
+   <requires>@ADDON_DEPENDS@</requires>
