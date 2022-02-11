@@ -1,0 +1,8 @@
+SRC_URI = "git://github.com//ossrs/librtmp.git;branch=master"
+SRCREV = "f1b83c10d8beb43fcc70a6e88cf4325499f25857"
+
+inherit autotools pkgconfig
+S = "${WORKDIR}/git"
+
+LICENSE="closed"
+DEPENDS += "openssl zlib"

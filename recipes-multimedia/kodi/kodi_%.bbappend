@@ -11,7 +11,6 @@ KODIADDONS ?= ""
 inherit pkgconfig cmake gettext python3-dir python3native kodi-common
 
 SRC_URI = "${KODIURI} \
-           file://0001-FindLibDvd.cmake-fix-logic-for-reusing-system-librar.patch \
            "
 SRCREV = "${AUTOREV}"
 S = "${KODIWORKDIR}"
@@ -42,7 +41,6 @@ DEPENDS += " \
   yasm-native \
   zip-native \
   avahi \
-  boost \
   bzip2 \
   crossguid \
   curl \
@@ -51,6 +49,7 @@ DEPENDS += " \
   expat \
   faad2 \
   ffmpeg \
+  cifs-utils \
   flatbuffers \
   fmt \
   netcat \
@@ -101,3 +100,7 @@ RRECOMMENDS:${PN}:append:libc-glibc = " \
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 FILES:${PN} += "${datadir}/metainfo"
+
+#do_compile:append () {
+#make -C tools/depends/target/binary-addons PREFIX=/usr/l
+#}

@@ -1,0 +1,8 @@
+SRC_URI = "git://github.com/OpenDMM/zvbi.git;branch=master"
+SRCREV = "559dade2b1ebaae3736e129a75f7f47799362caa"
+
+inherit autotools pkgconfig gettext
+S = "${WORKDIR}/git"
+
+LICENSE="closed"
+DEPENDS += "openssl zlib"

@@ -18,48 +18,53 @@ POKY_DEFAULT_DISTRO_FEATURES:remove:ugoos-am6 = "wayland vulkan multiarch  ptest
 MACHINE_FEATURES_BACKFILL:remove:ugoos-am6="qemu-usermode"
 
 IMAGE_INSTALL = "\
-    packagegroup-core-boot \
-    packagegroup-core-full-cmdline \
-    packagegroup-core-ssh-openssh \
-    openssh \
-    pulseaudio \
-    kernel-modules \
-    cpufrequtils \
-    libyaml \
-    linux-firmware \
-    mesa \ 
-    vim \ 
-    gnutls \
-    ffmpeg \
-    harfbuzz \
+    ${CORE_IMAGE_EXTRA_INSTALL} \
+    alsa-lib \
+    alsa-state \
+    alsa-utils \
     bash-completion \
+    cifs-utils \
+    coreutils \
+    cpufrequtils \
+    ffmpeg \
+    g12-sound \
+    glibc-utils \
+    gnutls \
+    harfbuzz \
+    i2c-tools \
+    kernel-modules \
     kodi \
     kodi-addon-inputstream-adaptive \
     kodi-addon-inputstream-ffmpegdirect \
     kodi-addon-peripheral-joystick \
     kodi-addon-pvr-plutotv \
-    kodi-visualization-shadertoy \
-    kodi-visualization-waveform \
+    kodi-game-libretro \
+    kodi-systemd-service \
     kodi-vfs-libarchive \
     kodi-vfs-rar \
     kodi-vfs-sftp \
-    kodi-game-libretro \
-    kodi-systemd-service \
-    i2c-tools \
-    alsa-state \
-    alsa-utils \
-    g12-sound \
-    coreutils \ 
-    usbutils \
-    tzdata \
+    kodi-visualization-shadertoy \
+    kodi-visualization-waveform \
+    libyaml \
+    linux-firmware \
+    localedef \
+    mesa \
+    openssh \
+    packagegroup-core-boot \
+    packagegroup-core-full-cmdline \
+    packagegroup-core-ssh-openssh \
+    pulseaudio \
+    python3-setuptools \
+    rsync \
+    systemd-serialgetty \
     transmission \
     transmission-web \
-    udevil \ 
-    python3-setuptools \
-    ${CORE_IMAGE_EXTRA_INSTALL} \
-    rsync \
-    glibc-utils \
-    localedef \
+    tzdata \
+    udevil \
+    upower \
+    usbutils \
+    util-linux \
+    vim \
     "
 GLIBC_GENERATE_LOCALES:append = " bg_BG.UTF-8"
 # 4G Rootfs
