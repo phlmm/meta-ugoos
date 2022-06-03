@@ -6,7 +6,7 @@ LICENSE = "CLOSED"
 inherit kodi-addon
 require recipes-multimedia/kodi/kodi-vers.inc
 
-SRC_URI = "git://github.com/kodi-game/game.libretro.mame.git;protocol=https;branch=master"
+SRC_URI = "git://github.com/kodi-game/game.libretro.mame.git;protocol=https;branch=Nexus"
 SRCREV = "006b3592a9069b2585510f77be615116ea219233"
 S = "${WORKDIR}/git"
 

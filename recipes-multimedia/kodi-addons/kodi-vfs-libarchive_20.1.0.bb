@@ -10,8 +10,8 @@ inherit kodi-addon
 require recipes-multimedia/kodi/kodi-vers.inc
 DEPENDS += "libarchive bzip2 lzo lz4"
 
-SRC_URI = "git://github.com/xbmc/vfs.libarchive.git;protocol=https;nobranch=1"
-SRCREV = "${PV}-${KODICODENAME}"
+SRC_URI = "git://github.com/xbmc/vfs.libarchive.git;protocol=https;branch=Nexus"
+SRCREV = "${AUTOREV}"
 S = "${WORKDIR}/git"
 
 KODIADDONNAME = "vfs.libarchive"

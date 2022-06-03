@@ -1,1 +1,2 @@
-PV = "20.1.0"
+SRC_URI = "git://github.com/xbmc/peripheral.joystick.git;branch=Nexus;protocol=https"
+SRCREV= "${AUTOREV}"

@@ -1,3 +1,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+SRC_URI = "git://github.com/xbmc/inputstream.ffmpegdirect.git;protocol=https;branch=${KODICODENAME}"
 #SRC_URI:append = " file://161.patch"
-PV = "20.1.0"
+SRCREV = "${AUTOREV}"
+PV = "${SRCPV}"

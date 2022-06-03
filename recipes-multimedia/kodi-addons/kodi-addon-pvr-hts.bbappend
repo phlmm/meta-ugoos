@@ -1,1 +1,2 @@
-PV = "20.1.0"
+SRC_URI = "git://github.com/kodi-pvr/pvr.hts.git;branch=${KODICODENAME};protocol=https"
+SRCREV = "${AUTOREV}"
